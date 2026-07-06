@@ -85,7 +85,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Öne Çıkan Ürünler"
               title="En Çok Tercih Edilenler"
-              description="Üretimdeki üç NOVA ürününü inceleyin; renk, ölçü ve gizli mekanizma tercihleri WhatsApp satış temsilcisiyle netleşir."
+              description="Aktif NOVA ürünlerini inceleyin; renk, ölçü ve gizli mekanizma tercihleri WhatsApp satış temsilcisiyle netleşir."
             />
             <Button asChild variant="light">
               <Link href="/urunler">Tüm Ürünleri Gör</Link>

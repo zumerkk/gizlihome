@@ -10,7 +10,7 @@ import { products } from "@/data/products";
 export const metadata: Metadata = {
   title: "Ürünler | Gizli Dolap, Gizli Mobilya ve Şifreli Komodin",
   description:
-    "GİZLİ HOME üretimdeki NOVA CUBE, NOVA LITE ve NOVA SLIDE gizli bölmeli komodin ürünlerini inceleyin. Gizli dolap, gizli mobilya ve NFC kartlı çözümler.",
+    "GİZLİ HOME aktif NOVA ürünlerini inceleyin: NOVA NIGHT 01, NOVA WALL 01, NOVA 03 PULSE, NOVA CUBE, NOVA LITE ve NOVA SLIDE. Gizli dolap, gizli mobilya ve NFC kartlı çözümler.",
   keywords: seoKeywords,
   alternates: {
     canonical: "/urunler",
@@ -25,8 +25,8 @@ export default function ProductsPage() {
         <div className="site-container">
           <SectionHeading
             eyebrow="Ürünler"
-            title="Üretimdeki Üç NOVA Ürünü."
-            description="NOVA CUBE, NOVA LITE ve NOVA SLIDE için renk, ölçü, gizli mekanizma ve teslimat detaylarını inceleyin. Online kart tahsilatı yok; teklif ve sipariş süreci WhatsApp üzerinden tamamlanır."
+            title="Aktif NOVA Ürünleri."
+            description="NOVA NIGHT 01, NOVA WALL 01, NOVA 03 PULSE, NOVA CUBE, NOVA LITE ve NOVA SLIDE için renk, ölçü, gizli mekanizma ve teslimat detaylarını inceleyin. Online kart tahsilatı yok; teklif ve sipariş süreci WhatsApp üzerinden tamamlanır."
           />
           <div className="mt-10">
             <ProductFilters products={products} />

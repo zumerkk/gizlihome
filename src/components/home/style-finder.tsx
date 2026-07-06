@@ -10,13 +10,13 @@ const options = [
   {
     id: "bedroom",
     label: "Yatak Odası",
-    result: "NOVA CUBE, NOVA LITE ve NOVA SLIDE yatak odası için en güçlü seçenekler.",
+    result: "NOVA NIGHT 01, NOVA CUBE, NOVA LITE, NOVA SLIDE ve NOVA 03 PULSE yatak odası için güçlü seçenekler.",
     href: "/urunler?collection=NOVA",
   },
   {
     id: "living",
     label: "Salon",
-    result: "NOVA SLIDE ve yakında gelecek salon çözümleri bu akışa daha iyi oturur.",
+    result: "NOVA WALL 01, salon ve antre duvarlarında gizli saklama için iyi bir başlangıçtır.",
     href: "/urunler?collection=NOVA",
   },
   {

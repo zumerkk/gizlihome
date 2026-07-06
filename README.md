@@ -69,9 +69,12 @@ Instagram: @gizlihome
 src/data/products.ts
 ```
 
-Prod katalogda şu an yalnızca üretimdeki 3 ürün aktif listelenir:
+Prod katalogda şu an aktif listelenen ürünler:
 
 ```txt
+NOVA NIGHT 01
+NOVA WALL 01
+NOVA 03 PULSE
 NOVA CUBE
 NOVA LITE
 NOVA SLIDE

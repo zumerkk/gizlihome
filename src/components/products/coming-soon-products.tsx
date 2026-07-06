@@ -14,7 +14,7 @@ export function ComingSoonProducts() {
         <SectionHeading
           eyebrow="Çok Yakında"
           title="Sıradaki gizli mekanizmalar hazırlanıyor."
-          description="Şu an üretimde üç NOVA ürünü listeleniyor. Sehpa, TV ünitesi, konsol, ofis ve villa proje ürünleri çok yakında katalogda yerini alacak."
+          description="Şu an aktif NOVA ürünleri listeleniyor. Sehpa, TV ünitesi, konsol, ofis ve villa proje ürünleri çok yakında katalogda yerini alacak."
           dark
         />
         <WhatsAppButton

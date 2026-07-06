@@ -27,7 +27,7 @@ export const collections: Collection[] = [
     name: "NOVA",
     eyebrow: "Modern Yaşam Koleksiyonu",
     description:
-      "Üretimdeki NOVA CUBE, NOVA LITE ve NOVA SLIDE ile modern gizli mobilya çizgisi.",
+      "NOVA NIGHT 01, NOVA WALL 01, NOVA 03 PULSE, NOVA CUBE, NOVA LITE ve NOVA SLIDE ile modern gizli mobilya çizgisi.",
     image: "/images/generated/collection-nova.webp",
     href: "/urunler?collection=NOVA",
   },
