@@ -7,6 +7,9 @@ import { businessInfo } from "@/data/site";
 export const metadata: Metadata = {
   title: "Gizlilik Politikası",
   description: "GİZLİ HOME gizlilik politikası taslak metni.",
+  alternates: {
+    canonical: "/gizlilik-politikasi",
+  },
 };
 
 export default function PrivacyPolicyPage() {

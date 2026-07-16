@@ -6,6 +6,9 @@ import { SectionHeading } from "@/components/common/section-heading";
 export const metadata: Metadata = {
   title: "Çerez Politikası",
   description: "GİZLİ HOME çerez politikası taslak metni.",
+  alternates: {
+    canonical: "/cerez-politikasi",
+  },
 };
 
 const sections = [

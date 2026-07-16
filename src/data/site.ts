@@ -1,3 +1,14 @@
+function normalizeSiteUrl(value?: string) {
+  const fallback = "https://www.gizlihome.com.tr";
+  const raw = (value || fallback).replace(/\/$/, "");
+
+  if (raw === "https://gizlihome.com.tr" || raw === "http://gizlihome.com.tr") {
+    return fallback;
+  }
+
+  return raw.replace(/^http:\/\//, "https://");
+}
+
 export const brand = {
   name: "GİZLİ HOME",
   slogan: "Görünmeyen Güvenlik.",
@@ -7,7 +18,7 @@ export const brand = {
   whatsappDisplay: "+90 541 381 21 14",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "905413812114",
   whatsappBaseUrl: "https://wa.me/905413812114",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://gizlihome.com.tr",
+  siteUrl: normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
   address: "Yenidoğan Mahallesi Hürriyet Caddesi 6/50",
   addressLocality: "Yenidoğan",
   addressRegion: "Türkiye",

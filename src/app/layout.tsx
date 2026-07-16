@@ -7,7 +7,7 @@ import { Header } from "@/components/layout/header";
 import { ScrollProgress } from "@/components/common/scroll-progress";
 import { FloatingWhatsAppButton } from "@/components/whatsapp/floating-whatsapp-button";
 import { JsonLd } from "@/components/common/json-ld";
-import { seoKeywords } from "@/data/site";
+import { brand, seoKeywords } from "@/data/site";
 import { organizationSchema } from "@/lib/seo";
 import "./globals.css";
 
@@ -25,7 +25,8 @@ const body = Manrope({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://gizlihome.com.tr";
+const siteUrl = brand.siteUrl;
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -84,6 +85,13 @@ export const metadata: Metadata = {
       "tr-TR": siteUrl,
     },
   },
+  ...(googleSiteVerification
+    ? {
+        verification: {
+          google: googleSiteVerification,
+        },
+      }
+    : {}),
 };
 
 export const viewport: Viewport = {

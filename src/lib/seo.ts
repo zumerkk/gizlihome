@@ -122,6 +122,9 @@ export function productSchema(product: Product) {
     "@context": "https://schema.org",
     "@type": "Product",
     "@id": `${brand.siteUrl}/urunler/${product.slug}#product`,
+    url: `${brand.siteUrl}/urunler/${product.slug}`,
+    mainEntityOfPage: `${brand.siteUrl}/urunler/${product.slug}`,
+    inLanguage: "tr-TR",
     name: product.name,
     image: product.images.map((image) => `${brand.siteUrl}${image}`),
     description: product.seoDescription,
@@ -153,6 +156,69 @@ export function productSchema(product: Product) {
       })),
     ],
     offers: offer,
+  };
+}
+
+export function productListSchema(items: Product[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${brand.siteUrl}/urunler#collection`,
+    url: `${brand.siteUrl}/urunler`,
+    name: "GİZLİ HOME Ürünler",
+    inLanguage: "tr-TR",
+    description:
+      "Gizli dolap, gizli mobilya, şifreli mobilya, NFC kartlı komodin ve gizli bölmeli raf ürünleri.",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      numberOfItems: items.length,
+      itemListElement: items.map((product, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${brand.siteUrl}/urunler/${product.slug}`,
+        item: {
+          "@type": "Product",
+          "@id": `${brand.siteUrl}/urunler/${product.slug}#product`,
+          name: product.name,
+          image: `${brand.siteUrl}${product.images[0]}`,
+          description: product.seoDescription,
+          category: product.category,
+          brand: {
+            "@type": "Brand",
+            name: brand.name,
+          },
+        },
+      })),
+    },
+  };
+}
+
+export function webPageSchema({
+  path,
+  name,
+  description,
+}: {
+  path: string;
+  name: string;
+  description: string;
+}) {
+  const url = `${brand.siteUrl}${path}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name,
+    description,
+    inLanguage: "tr-TR",
+    isPartOf: {
+      "@id": `${brand.siteUrl}/#website`,
+    },
+    publisher: {
+      "@id": `${brand.siteUrl}/#organization`,
+    },
   };
 }
 

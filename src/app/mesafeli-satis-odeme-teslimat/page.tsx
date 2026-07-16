@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Mesafeli Satış / Ödeme ve Teslimat Bilgilendirme",
   description:
     "GİZLİ HOME ödeme, teslimat, WhatsApp sipariş ve özel üretim bilgilendirme taslağı.",
+  alternates: {
+    canonical: "/mesafeli-satis-odeme-teslimat",
+  },
 };
 
 const sections = [

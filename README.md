@@ -44,7 +44,8 @@ Değiştirmek için `.env.local` dosyası oluşturun:
 
 ```bash
 NEXT_PUBLIC_WHATSAPP_NUMBER=905413812114
-NEXT_PUBLIC_SITE_URL=https://gizlihome.com.tr
+NEXT_PUBLIC_SITE_URL=https://www.gizlihome.com.tr
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=google-search-console-token
 ```
 
 Görünen telefon metni ve sosyal bilgiler için:
@@ -146,5 +147,13 @@ npm run build
 ```
 
 `NEXT_PUBLIC_SITE_URL` production domain ile güncellenmelidir. Ana domain
-şimdilik `https://gizlihome.com.tr` olarak planlanmıştır. Yasal metinlerdeki
+`https://www.gizlihome.com.tr` olarak ayarlanmıştır. Google Search Console
+HTML meta doğrulaması kullanılacaksa `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`
+değeri Google'ın verdiği token ile doldurulmalıdır. Search Console sitemap URL:
+
+```txt
+https://www.gizlihome.com.tr/sitemap.xml
+```
+
+Yasal metinlerdeki
 placeholder alanlar yayın öncesinde marka tüzel bilgileriyle netleştirilmelidir.
