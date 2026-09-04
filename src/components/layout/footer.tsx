@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Camera, MessageCircle } from "lucide-react";
-import { AgencySignature } from "@/components/layout/agency-signature";
 import { Logo } from "@/components/common/logo";
 import { WhatsAppButton } from "@/components/whatsapp/whatsapp-button";
 import { brand, legalLinks } from "@/data/site";
@@ -67,12 +66,13 @@ export function Footer() {
               <p>WhatsApp: {brand.whatsappDisplay}</p>
               <p>Instagram: {brand.instagram}</p>
               <p>Adres: {brand.address}</p>
-              <p>Online kredi kartı tahsilatı şu an aktif değildir.</p>
+              <p>Güvenli kartlı ödeme: Shopier</p>
+              <Link href="/siparis/takip" className="transition hover:text-cream">
+                Sipariş durumunu takip et
+              </Link>
             </div>
           </div>
         </div>
-
-        <AgencySignature />
 
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-stone/60 md:flex-row md:items-center md:justify-between">
           <p>© 2026 GİZLİ HOME. Tüm hakları saklıdır.</p>

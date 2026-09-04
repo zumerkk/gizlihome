@@ -1,159 +1,108 @@
 # GİZLİ HOME
 
-Premium, dönüşüm odaklı, WhatsApp satış akışına sahip Next.js 16 web sitesi.
-Ürün keşfi, hızlı bakış, favoriler, sepet paneli ve teklif/sipariş listesini
-WhatsApp'a taşıyan modern bir arayüz içerir.
+GİZLİ HOME için hazırlanan premium Next.js mağazası. Yedi NOVA modelini gerçek
+ürün görselleri ve videolarıyla sunar; sepet, PayTR iFrame ödeme, sipariş takibi
+ve korumalı yönetim paneli içerir.
 
 ## Teknoloji
 
-- Next.js 16.2.9
-- TypeScript
-- App Router
-- Tailwind CSS v4
-- shadcn/ui yaklaşımıyla Radix primitive bileşenleri
-- Lucide Icons
-- Framer Motion
-- `next/image` ile yerel optimize görseller
-- JSON-LD, Open Graph, sitemap ve robots altyapısı
+- Next.js 16.2.9, React 19 ve TypeScript
+- App Router ve Tailwind CSS v4
+- Yerel, optimize ürün görselleri ve H.264 videolar
+- PayTR iFrame API ve imzalı sunucu callback doğrulaması
+- Upstash Redis REST uyumlu sipariş deposu
+- JSON-LD, Open Graph, sitemap ve robots
 
-## Kurulum
+## Yerelde çalıştırma
 
 ```bash
 npm install
+cp .env.example .env.local
 npm run dev
 ```
 
-Yerel adres:
+Uygulama `http://localhost:3000` adresinde açılır. Gerçek PayTR bilgileri
+tanımlanmadan ödeme akışını test etmek için yalnızca geliştirme ortamında
+`DEMO_PAYMENTS_ENABLED=1` kullanılabilir. Demo hiçbir gerçek kart verisi almaz.
 
-```bash
-http://localhost:3000
-```
-
-Production build:
-
-```bash
-npm run build
-npm run start
-```
-
-## Environment Variables
-
-Varsayılan olarak WhatsApp yönlendirmeleri `905413812114`
-(`+90 541 381 21 14`) numarasına gider.
-Değiştirmek için `.env.local` dosyası oluşturun:
-
-```bash
-NEXT_PUBLIC_WHATSAPP_NUMBER=905413812114
-NEXT_PUBLIC_SITE_URL=https://www.gizlihome.com.tr
-NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=google-search-console-token
-```
-
-Görünen telefon metni ve sosyal bilgiler için:
-
-```txt
-src/data/site.ts
-```
-
-Güncel iletişim bilgileri:
-
-```txt
-Telefon / WhatsApp: +90 541 381 21 14
-Adres: Yenidoğan Mahallesi Hürriyet Caddesi 6/50
-Instagram: @gizlihome
-```
-
-## Ürün ve İçerik Yönetimi
-
-Ürünler local data olarak tutulur:
-
-```txt
-src/data/products.ts
-```
-
-Prod katalogda şu an aktif listelenen ürünler:
-
-```txt
-NOVA NIGHT 01
-NOVA WALL 01
-NOVA 03 PULSE
-NOVA CUBE
-NOVA LITE
-NOVA SLIDE
-```
-
-Diğer kategori ve ürün aileleri `comingSoonProducts` datasında "Çok Yakında"
-alanı olarak tutulur; detay sayfası ve sitemap üretmez.
-
-Her ürün şu alanlarla ileride Supabase, Prisma veya CMS yapısına taşınabilecek şekilde modellenmiştir:
-
-```txt
-id, slug, name, collection, category, price, oldPrice, currency,
-description, shortDescription, features, colors, sizes, images, isFeatured,
-isNew, isCustomQuote, stockStatus, technicalSpecs, whatsappMessage,
-deliveryInfo, paymentInfo, seoTitle, seoDescription
-```
-
-Koleksiyonlar ve SSS:
-
-```txt
-src/data/collections.ts
-src/data/faq.ts
-```
-
-## WhatsApp Satış Akışı
-
-Online kredi kartı ödeme sistemi bilinçli olarak eklenmemiştir. Kullanıcı
-ürünleri sepet paneline ekleyebilir; renk, ölçü ve adet seçimiyle oluşturulan
-sipariş/teklif listesi WhatsApp mesajına dönüştürülür.
-
-Reusable component:
-
-```txt
-src/components/whatsapp/whatsapp-button.tsx
-```
-
-URL ve mesaj üretici:
-
-```txt
-src/lib/whatsapp.ts
-```
-
-Sepet paneli ve localStorage tabanlı favoriler:
-
-```txt
-src/components/cart
-src/components/products/product-card.tsx
-```
-
-## Görseller
-
-Logo dışındaki premium görsel setleri proje içinde üretilmiş ve WebP olarak
-optimize edilmiştir:
-
-```txt
-public/images/generated
-```
-
-Gerçek ürün fotoğrafları geldiğinde `src/data/products.ts` ve
-`src/data/collections.ts` içindeki path'ler güncellenebilir.
-
-## Deploy Önerisi
-
-Vercel önerilir. Deploy öncesi:
+Kalite kontrolleri:
 
 ```bash
 npm run lint
 npm run build
 ```
 
-`NEXT_PUBLIC_SITE_URL` production domain ile güncellenmelidir. Ana domain
-`https://www.gizlihome.com.tr` olarak ayarlanmıştır. Google Search Console
-HTML meta doğrulaması kullanılacaksa `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`
-değeri Google'ın verdiği token ile doldurulmalıdır. Search Console sitemap URL:
+## Katalog
 
-```txt
-https://www.gizlihome.com.tr/sitemap.xml
+Katalog `src/data/products.ts` dosyasındadır:
+
+- NOVA CUBE — 10.990 TL
+- NOVA AURA 01 — 15.000 TL
+- NOVA AURA 02 — 18.000 TL
+- NOVA NIGHT 01 — 9.990 TL
+- NOVA WALL 01 — 8.490 TL
+- NOVA LITE — 12.490 TL
+- NOVA SLIDE — 13.490 TL
+
+Ürün modeli SKU, fiyat, renk, ölçü, garanti, termin, teknik özellik, görseller,
+videolar ve SEO alanlarını içerir. PayTR'ye gönderilen ürün adı, varyasyon,
+adet ve fiyat bilgileri istemciden kabul edilmez; sunucuda katalogdan yeniden
+hesaplanır.
+
+## Sipariş ve ödeme akışı
+
+1. Müşteri sepet ve teslimat bilgilerini gönderir.
+2. `/api/orders` siparişi sunucuda doğrular ve kaydeder.
+3. PayTR token'ı sunucuda HMAC-SHA256 ile üretilir.
+4. Kart alanları yalnızca PayTR iFrame içinde açılır.
+5. `/api/paytr/callback` imzayı, sipariş kodunu ve tahsilat tutarını doğrular.
+6. Sipariş ancak imzalı callback sonrasında `paid` durumuna geçer.
+7. Müşteri `/siparis/takip` sayfasında sipariş kodu ve e-posta ile ilerlemeyi
+   görür; yetkili kullanıcı `/yonetim/siparisler` ekranından durumu günceller.
+
+## Ortam değişkenleri
+
+Tüm alanlar `.env.example` içinde açıklanmıştır. Canlı kullanım için zorunlu
+gruplar:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://www.gizlihome.com.tr
+PAYTR_MERCHANT_ID=
+PAYTR_MERCHANT_KEY=
+PAYTR_MERCHANT_SALT=
+PAYTR_TEST_MODE=1
+UPSTASH_REDIS_REST_URL=
+UPSTASH_REDIS_REST_TOKEN=
+ADMIN_PASSWORD=
+ADMIN_SESSION_SECRET=
 ```
 
-Yasal metinlerdeki
-placeholder alanlar yayın öncesinde marka tüzel bilgileriyle netleştirilmelidir.
+PayTR panelindeki bildirim URL'si:
+
+```text
+https://www.gizlihome.com.tr/api/paytr/callback
+```
+
+Üretimde yerel dosya deposuna geri düşülmez. Upstash/Vercel KV uyumlu REST
+bilgileri yoksa sipariş oluşturma güvenli biçimde reddedilir. Yönetim parolası
+ve oturum sırrı uzun, benzersiz değerler olmalıdır.
+
+## Medya
+
+Kullanılan seçilmiş ürün dosyaları:
+
+```text
+public/images/products
+public/videos/products
+```
+
+Kaynak videolar H.264, web uyumlu boyut ve `faststart` ayarıyla optimize
+edilmiştir. Ürün geometrisi korunarak hazırlanan stüdyo görselleri katalogda
+yerel dosya olarak sunulur.
+
+## Canlıya alma
+
+Vercel projesinde production ortam değişkenleri tanımlandıktan sonra önce
+Preview deploy üzerinde gerçek PayTR test modu ve callback doğrulanmalı; ardından
+production deploy yapılmalıdır. Yasal satıcı unvanı, vergi ve MERSİS bilgileri
+ile iade adresi işletmenin hukuk/mali müşaviri tarafından kesinleştirilmelidir.

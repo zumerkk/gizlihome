@@ -7,7 +7,7 @@ import { businessInfo } from "@/data/site";
 export const metadata: Metadata = {
   title: "Mesafeli Satış / Ödeme ve Teslimat Bilgilendirme",
   description:
-    "GİZLİ HOME ödeme, teslimat, WhatsApp sipariş ve özel üretim bilgilendirme taslağı.",
+    "GİZLİ HOME kartlı ödeme, sipariş, teslimat, cayma ve özel üretim bilgilendirmesi.",
   alternates: {
     canonical: "/mesafeli-satis-odeme-teslimat",
   },
@@ -20,11 +20,11 @@ const sections = [
   },
   {
     title: "Sipariş akışı",
-    text: "Kullanıcı ürünü seçer, fiyat ve renk bilgisini görür, WhatsApp butonuyla satış temsilcisine yönlenir. Sipariş onayı, teslimat ve ödeme seçenekleri temsilci tarafından paylaşılır.",
+    text: "Kullanıcı ürün, renk, ölçü ve adet seçimini sepete ekler. Kartlı ödeme, yeni sanal POS entegrasyonu tamamlanana kadar GİZLİ HOME’un Shopier mağazasında güvenli şekilde tamamlanır.",
   },
   {
     title: "Ödeme seçenekleri",
-    text: "Kapıda ödeme, havale/EFT, mağaza teslim veya proje bazlı ödeme planı ürün ve teslimat koşullarına göre WhatsApp görüşmesinde netleştirilebilir.",
+    text: "Kartlı ödemeler geçici olarak Shopier güvenli ödeme alanında tamamlanır; kart bilgileri GİZLİ HOME tarafından görülmez veya saklanmaz. Havale/EFT ve proje bazlı ödeme planları için satış ekibimizle görüşebilirsiniz. Kapıda ödeme standart bir seçenek değildir.",
   },
   {
     title: "Teslimat",
@@ -33,6 +33,10 @@ const sections = [
   {
     title: "Özel üretim",
     text: "Özel ölçü, özel renk ve proje ürünlerinde teslim süresi, fiyat ve kapsam teklif aşamasında belirlenir.",
+  },
+  {
+    title: "Cayma, iade ve üretim toleransı",
+    text: "Standart ürünlerde yürürlükteki tüketici mevzuatından doğan haklar saklıdır. Kullanıcının özel ölçü, renk veya teknik tercihlerine göre üretilen ürünlerde cayma hakkı mevzuattaki istisnalara tabi olabilir. Hasarlı teslimat ve üretim kaynaklı sorunlar için teslimat belgesi, ambalaj ve ürün fotoğraflarıyla aynı gün iletişime geçilmelidir. Mobilya üretiminde teknik çizimde belirtilen toleranslar geçerlidir.",
   },
 ];
 
@@ -45,7 +49,7 @@ export default function SalesDeliveryPage() {
           <SectionHeading
             eyebrow="Yasal"
             title="Mesafeli Satış / Ödeme ve Teslimat Bilgilendirme"
-            description="Bu sayfa, GİZLİ HOME sipariş modelini ve ödeme-teslimat akışını netleştiren profesyonel taslak metindir."
+            description="Sipariş vermeden önce ödeme, üretim ve teslimat koşullarını inceleyin. Siparişe özgü ön bilgilendirme ve sözleşme ödeme adımında onayınıza sunulur."
           />
           <div className="mt-10 grid gap-5">
             {sections.map((section) => (

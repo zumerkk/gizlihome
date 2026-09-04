@@ -3,13 +3,8 @@ import type { Product } from "@/types/product";
 
 export const productCategories = [
   "Gizli Bölmeli Komodinler",
+  "Akıllı Komodinler",
   "Gizli Bölmeli Raflar",
-  "Gizli Bölmeli Sehpalar",
-  "TV Üniteleri",
-  "Konsollar",
-  "Ofis Mobilyaları",
-  "Villa & Proje Ürünleri",
-  "Özel Üretim",
 ];
 
 export type ComingSoonProduct = {
@@ -22,383 +17,352 @@ export type ComingSoonProduct = {
   keywords: string[];
 };
 
+const common = {
+  currency: "TRY" as const,
+  warranty: "2 yıl mekanizma ve üretim garantisi",
+  deliveryInfo: businessInfo.delivery,
+  paymentInfo: businessInfo.payment,
+};
+
 export const products: Product[] = [
   {
+    ...common,
     id: "nova-cube",
+    sku: "GH-NC-01",
     slug: "nova-cube-isikli-gizli-bolmeli-komodin",
     name: "NOVA CUBE",
+    shopierUrl: "https://www.shopier.com/gizlihome/50512326",
     collection: "NOVA",
     category: "Işıklı Gizli Bölmeli Komodin",
-    price: null,
+    price: 10990,
     oldPrice: null,
-    currency: "TRY",
     shortDescription:
-      "Küp formunda, LED ambiyanslı ve gizli bölmeli premium komodin.",
+      "Kart kontrollü gizli bölmesi ve çift çekmecesiyle markanın imza komodini.",
     description:
-      "NOVA CUBE, sade küp formunu mavi LED ambiyans, gizli saklama alanı ve modern yatak odası estetiğiyle birleştirir. Dışarıdan şık bir komodin, içeride yalnızca size ait kontrollü bir alan sunar.",
-    features: [
-      "Gizli bölmeli tasarım",
-      "LED ambiyans aydınlatma",
-      "NFC erişim opsiyonu",
-      "İki çekmeceli saklama",
-      "Modern küp gövde",
-      "Premium MDF lam yüzey",
-    ],
-    colors: ["Kırık Beyaz", "Antrasit", "Kum Beji", "Safir Meşe"],
-    sizes: ["Standart", "Geniş", "Özel Ölçü"],
-    images: [
-      "/images/generated/product-nova-cube-5.webp",
-      "/images/generated/product-nova-cube-6.webp",
-      "/images/generated/product-nova-cube-7.webp",
-      "/images/generated/product-nova-cube-8.webp",
-      "/images/generated/product-nova-cube-1.webp",
-      "/images/generated/product-nova-cube-2.webp",
-      "/images/generated/product-nova-cube-3.webp",
-      "/images/generated/product-nova-cube-4.webp",
-    ],
-    isFeatured: true,
-    isNew: true,
-    isCustomQuote: true,
-    stockStatus: "Sınırlı Üretim",
-    technicalSpecs: [
-      { label: "Form", value: "Küp görünümlü iki çekmeceli komodin gövdesi" },
-      { label: "Aydınlatma", value: "Ara katmanda mavi LED ambiyans ışığı" },
-      { label: "Erişim", value: "NFC kart veya projeye göre özel erişim opsiyonu" },
-      { label: "Gizli Alan", value: "Gövde içinde görünmeyen saklama bölmesi" },
-    ],
-    whatsappMessage:
-      "Merhaba, GİZLİ HOME web sitesinden NOVA CUBE hakkında bilgi almak istiyorum.",
-    deliveryInfo: businessInfo.delivery,
-    paymentInfo: businessInfo.payment,
-    seoTitle:
-      "NOVA CUBE Işıklı Gizli Bölmeli Komodin | Gizli Mobilya",
-    seoDescription:
-      "NOVA CUBE; LED ambiyanslı, gizli bölmeli, NFC erişim opsiyonlu ve modern küp formlu premium komodin modelidir.",
-  },
-  {
-    id: "nova-lite",
-    slug: "nova-lite-nfcli-gizli-bolmeli-akilli-komodin",
-    name: "NOVA LITE",
-    collection: "NOVA",
-    category: "NFC'li Gizli Bölmeli Akıllı Komodin",
-    price: null,
-    oldPrice: null,
-    currency: "TRY",
-    shortDescription:
-      "NFC kartlı, LED aydınlatmalı ve gizli bölmeli koyu komodin.",
-    description:
-      "NOVA LITE, koyu premium gövdesi, mavi LED iç aydınlatması, iki çekmecesi ve NFC kartlı gizli bölmesiyle modern yatak odaları için kompakt ama güçlü bir güvenlik mobilyasıdır.",
+      "NOVA CUBE, çift çekmeceli yalın gövdeyi kart kontrollü gizli saklama alanı ve katmanlı LED aydınlatmayla birleştirir. Kısa orta kaide üzerindeki geniş üst kutunun menteşeli kapağı NFC kartla açıldığında yalnızca yetkilendirilmiş kullanıcının erişebildiği düzenli iç hacim ortaya çıkar.",
     features: [
       "NFC kartlı erişim",
-      "Gizli üst bölme",
-      "LED aydınlatmalı iç hacim",
-      "İki çekmeceli kullanım",
-      "Modern koyu gövde",
-      "Sessiz ray sistemi",
+      "Menteşeli gizli bölme kapağı",
+      "Sabit kaideli LED üst platform",
+      "İki geniş çekmece",
+      "2 adet yetkilendirilmiş kart",
+      "Kurulu ve kullanıma hazır teslimat",
     ],
-    colors: ["Antrasit", "Koyu Gri", "Siyah", "Kum Beji"],
-    sizes: ["Standart", "Geniş", "Özel Ölçü"],
+    colors: ["Antrasit", "Siyah", "Kırık Beyaz"],
+    sizes: ["50 × 42 × 58 cm"],
     images: [
-      "/images/generated/product-nova-lite-5.webp",
-      "/images/generated/product-nova-lite-6.webp",
-      "/images/generated/product-nova-lite-7.webp",
-      "/images/generated/product-nova-lite-8.webp",
-      "/images/generated/product-nova-lite-1.webp",
-      "/images/generated/product-nova-lite-2.webp",
-      "/images/generated/product-nova-lite-3.webp",
-      "/images/generated/product-nova-lite-4.webp",
+      "/images/products/studio/nova-cube-v2/antrasit-kapak.webp",
+      "/images/products/studio/nova-cube-v2/antrasit-gizli-bolme.webp",
+      "/images/products/nova-cube-v2/gercek-urun-led-kapak.webp",
+      "/images/products/nova-cube-v2/gercek-urun-genel.webp",
     ],
-    isFeatured: true,
-    isNew: true,
-    isCustomQuote: true,
-    stockStatus: "Sınırlı Üretim",
-    technicalSpecs: [
-      { label: "Erişim", value: "NFC kart ile yetkilendirilmiş gizli açılış" },
-      { label: "Aydınlatma", value: "Mavi LED aydınlatmalı açık iç hacim" },
-      { label: "Depolama", value: "İki çekmece ve üst gizli bölme kombinasyonu" },
-      { label: "Gövde", value: "Koyu tonlu premium komodin formu" },
+    colorImages: {
+      Antrasit: [
+        "/images/products/studio/nova-cube-v2/antrasit-kapak.webp",
+        "/images/products/studio/nova-cube-v2/antrasit-gizli-bolme.webp",
+        "/images/products/nova-cube-v2/gercek-urun-led-kapak.webp",
+        "/images/products/nova-cube-v2/gercek-urun-genel.webp",
+      ],
+      Siyah: [
+        "/images/products/studio/nova-cube-v2/siyah-kapak.webp",
+        "/images/products/studio/nova-cube-v2/siyah-gizli-bolme.webp",
+      ],
+      "Kırık Beyaz": [
+        "/images/products/studio/nova-cube-v2/kirik-beyaz-kapak.webp",
+        "/images/products/studio/nova-cube-v2/kirik-beyaz-gizli-bolme.webp",
+      ],
+    },
+    videos: [
+      {
+        src: "/videos/products/nova-cube-yeni-tanitim.mp4",
+        poster: "/images/products/nova-cube-v2/gercek-urun-led-kapak.webp",
+        label: "NOVA CUBE gerçek ürün ve NFC erişim videosu",
+      },
     ],
-    whatsappMessage:
-      "Merhaba, GİZLİ HOME web sitesinden NOVA LITE hakkında bilgi almak istiyorum.",
-    deliveryInfo: businessInfo.delivery,
-    paymentInfo: businessInfo.payment,
-    seoTitle:
-      "NOVA LITE NFC'li Gizli Bölmeli Akıllı Komodin | Şifreli Mobilya",
-    seoDescription:
-      "NOVA LITE; NFC kartlı erişim, LED aydınlatmalı iç hacim, gizli üst bölme ve iki çekmeceli premium akıllı komodin modelidir.",
-  },
-  {
-    id: "nova-slide",
-    slug: "nova-slide-nfcli-gizli-bolmeli-komodin",
-    name: "NOVA SLIDE",
-    collection: "NOVA",
-    category: "NFC'li Gizli Bölmeli Komodin",
-    price: null,
-    oldPrice: null,
-    currency: "TRY",
-    shortDescription:
-      "Ceviz dokulu, NFC erişimli ve sürgülü gizli bölmeli komodin.",
-    description:
-      "NOVA SLIDE, sıcak ceviz dokusunu antrasit yüzeylerle birleştiren, NFC kartlı erişim ve iç aydınlatmalı gizli bölme sunan premium komodindir. Tek dokunuşla açılan gizli alan, günlük yaşamda görünmeden çalışır.",
-    features: [
-      "NFC kartlı erişim",
-      "Sürgülü / kapaklı gizli bölme",
-      "LED iç aydınlatma",
-      "Ceviz çıtalı yan detay",
-      "Antrasit çekmece yüzeyi",
-      "Modern ve sıcak tasarım",
-    ],
-    colors: ["Ceviz", "Antrasit", "Siyah", "Kum Beji"],
-    sizes: ["Standart", "Geniş", "Özel Ölçü"],
-    images: [
-      "/images/generated/product-nova-slide-5.webp",
-      "/images/generated/product-nova-slide-6.webp",
-      "/images/generated/product-nova-slide-7.webp",
-      "/images/generated/product-nova-slide-8.webp",
-      "/images/generated/product-nova-slide-1.webp",
-      "/images/generated/product-nova-slide-2.webp",
-      "/images/generated/product-nova-slide-3.webp",
-      "/images/generated/product-nova-slide-4.webp",
-    ],
-    isFeatured: true,
-    isNew: true,
-    isCustomQuote: true,
-    stockStatus: "Özel Üretim",
-    technicalSpecs: [
-      { label: "Malzeme", value: "Ceviz dokulu yüzey ve antrasit çekmece dili" },
-      { label: "Erişim", value: "NFC kartlı veya projeye özel erişim seçeneği" },
-      { label: "Gizli Alan", value: "Yan bölümde LED aydınlatmalı saklama hacmi" },
-      { label: "Tasarım", value: "Çıtalı yan yüzey, yükseltilmiş ayak ve modern gövde" },
-    ],
-    whatsappMessage:
-      "Merhaba, GİZLİ HOME web sitesinden NOVA SLIDE hakkında bilgi almak istiyorum.",
-    deliveryInfo: businessInfo.delivery,
-    paymentInfo: businessInfo.payment,
-    seoTitle:
-      "NOVA SLIDE NFC'li Gizli Bölmeli Komodin | Gizli Çekmece",
-    seoDescription:
-      "NOVA SLIDE; ceviz dokulu, antrasit yüzeyli, NFC erişimli, LED aydınlatmalı gizli bölme sunan premium gizli çekmeceli komodindir.",
-  },
-  {
-    id: "nova-night-01",
-    slug: "nova-night-01-gizli-bolmeli-komodin",
-    name: "NOVA NIGHT 01",
-    collection: "NOVA",
-    category: "Gizli Bölmeli Komodin",
-    price: null,
-    oldPrice: null,
-    currency: "TRY",
-    shortDescription:
-      "Üst kapaklı gizli bölmesi, NFC erişim opsiyonu ve sade beyaz gövdesiyle premium komodin.",
-    description:
-      "NOVA NIGHT 01, dışarıdan modern ve sakin bir komodin gibi görünür. Üst kapağı açıldığında LED destekli gizli saklama alanı ortaya çıkar; saat, takı, belge ve kişisel eşyalarınızı görünmeden korumak için tasarlanır.",
-    features: [
-      "Üst kapaklı gizli bölme",
-      "NFC kartlı erişim opsiyonu",
-      "LED iç aydınlatma",
-      "İki çekmeceli komodin gövdesi",
-      "Sessiz ray sistemi",
-      "Beyaz ve antrasit renk seçenekleri",
-    ],
-    colors: ["Beyaz", "Antrasit", "Siyah", "Safir Meşe"],
-    sizes: ["Standart", "Geniş", "Özel Ölçü"],
-    images: [
-      "/images/generated/product-nova-night-01-5.webp",
-      "/images/generated/product-nova-night-01-6.webp",
-      "/images/generated/product-nova-night-01-7.webp",
-      "/images/generated/product-nova-night-01-8.webp",
-      "/images/generated/product-nova-night-01-1.webp",
-      "/images/generated/product-nova-night-01-2.webp",
-      "/images/generated/product-nova-night-01-3.webp",
-      "/images/generated/product-nova-night-01-4.webp",
-    ],
+    dimensions: {
+      width: 50,
+      depth: 42,
+      height: 58,
+      hiddenCompartment: "Yaklaşık 44 × 35 × 9 cm",
+    },
+    leadTime: "Stok durumuna göre 3–10 iş günü",
     isFeatured: true,
     isNew: false,
-    isCustomQuote: true,
+    isCustomQuote: false,
     stockStatus: "Sınırlı Üretim",
     technicalSpecs: [
-      { label: "Form", value: "İki çekmeceli modern yatak odası komodini" },
-      { label: "Gizli Alan", value: "Üst kapak altında LED aydınlatmalı saklama bölmesi" },
-      { label: "Erişim", value: "NFC kartlı veya projeye göre özel erişim opsiyonu" },
-      { label: "Kullanım", value: "Takı, saat, belge ve kişisel eşyalar için gizli alan" },
+      { label: "Dış ölçü", value: "50 G × 42 D × 58 Y cm" },
+      { label: "Gizli alan", value: "Yaklaşık 44 × 35 × 9 cm" },
+      { label: "Erişim", value: "Yetkilendirilebilir NFC kartlı kapak kilidi" },
+      { label: "Aydınlatma", value: "Sabit üst platformda nötr beyaz LED" },
+      { label: "Gövde", value: "Premium MDF yüzey, mat antrasit bitiş" },
+      { label: "Paket", value: "Komodin, 2 NFC kart ve kullanım kılavuzu" },
     ],
     whatsappMessage:
-      "Merhaba, GİZLİ HOME web sitesinden NOVA NIGHT 01 hakkında bilgi almak istiyorum.",
-    deliveryInfo: businessInfo.delivery,
-    paymentInfo: businessInfo.payment,
-    seoTitle:
-      "NOVA NIGHT 01 Gizli Bölmeli Komodin | NFC Kartlı Gizli Mobilya",
+      "Merhaba, GİZLİ HOME NOVA CUBE için sipariş ve teslimat bilgisi almak istiyorum.",
+    seoTitle: "NOVA CUBE NFC Kartlı Gizli Bölmeli Komodin",
     seoDescription:
-      "NOVA NIGHT 01; üst kapaklı gizli bölme, NFC kartlı erişim opsiyonu, LED iç aydınlatma ve iki çekmeceli premium komodin tasarımı sunar.",
+      "NOVA CUBE; NFC kartlı menteşeli gizli bölme, LED aydınlatmalı sabit üst platform ve çift çekmeceli premium komodin tasarımı sunar.",
   },
   {
-    id: "nova-wall-01",
-    slug: "nova-wall-01-gizli-bolmeli-raf",
-    name: "NOVA WALL 01",
-    collection: "NOVA",
-    category: "Gizli Bölmeli Raf",
-    price: null,
-    oldPrice: null,
-    currency: "TRY",
-    shortDescription:
-      "Duvarda minimal raf görünümü, içinde LED aydınlatmalı gizli saklama alanı.",
-    description:
-      "NOVA WALL 01, dışarıdan dekoratif ve minimal bir duvar rafı gibi görünür. Açıldığında sıcak LED aydınlatmalı ahşap iç hacim, NFC kart erişimi ve güvenli saklama alanı sunar.",
-    features: [
-      "Duvar tipi gizli raf tasarımı",
-      "NFC kartlı erişim opsiyonu",
-      "LED aydınlatmalı iç hacim",
-      "Sessiz ve güvenli mekanizma",
-      "Dekoratif raf görünümü",
-      "Kolay montaj aparatı",
-    ],
-    colors: ["Beyaz", "Antrasit", "Safir Meşe"],
-    sizes: ["Standart", "Geniş", "Özel Ölçü"],
-    images: [
-      "/images/generated/product-nova-wall-01-5.webp",
-      "/images/generated/product-nova-wall-01-6.webp",
-      "/images/generated/product-nova-wall-01-7.webp",
-      "/images/generated/product-nova-wall-01-8.webp",
-      "/images/generated/product-nova-wall-01-1.webp",
-      "/images/generated/product-nova-wall-01-2.webp",
-      "/images/generated/product-nova-wall-01-3.webp",
-      "/images/generated/product-nova-wall-01-4.webp",
-    ],
-    isFeatured: true,
-    isNew: false,
-    isCustomQuote: true,
-    stockStatus: "Sınırlı Üretim",
-    technicalSpecs: [
-      { label: "Form", value: "Minimal yatay duvar rafı gövdesi" },
-      { label: "İç Hacim", value: "LED aydınlatmalı ahşap saklama bölmesi" },
-      { label: "Erişim", value: "Yetkilendirilmiş NFC kart ile açılış opsiyonu" },
-      { label: "Montaj", value: "Duvar tipine göre sabitleme aparatı" },
-    ],
-    whatsappMessage:
-      "Merhaba, GİZLİ HOME web sitesinden NOVA WALL 01 hakkında bilgi almak istiyorum.",
-    deliveryInfo: businessInfo.delivery,
-    paymentInfo: businessInfo.payment,
-    seoTitle:
-      "NOVA WALL 01 Gizli Bölmeli Raf | Gizli Dolap ve Duvar Rafı",
-    seoDescription:
-      "NOVA WALL 01; duvarda minimal raf görünümü, LED aydınlatmalı gizli iç hacim ve NFC kartlı erişim opsiyonuyla premium gizli raf çözümüdür.",
-  },
-  {
-    id: "nova-03-pulse",
-    slug: "nova-03-pulse-akilli-gizli-bolmeli-komodin",
-    name: "NOVA 03 PULSE",
+    ...common,
+    id: "nova-aura-02",
+    sku: "GH-NA-02",
+    slug: "nova-aura-02-akilli-gizli-bolmeli-komodin",
+    name: "NOVA AURA 02",
+    shopierUrl: "https://www.shopier.com/gizlihome/50538291",
     collection: "NOVA",
     category: "Akıllı Gizli Bölmeli Komodin",
-    price: null,
+    price: 18000,
     oldPrice: null,
-    currency: "TRY",
     shortDescription:
-      "LED cam yüzeyli, akıllı erişimli ve geniş gizli saklama hacimli premium komodin.",
+      "Cam akıllı yüzey, kablosuz şarj, Bluetooth ses ve motorlu gizli erişimin yeni yorumu.",
     description:
-      "NOVA 03 PULSE, akıllı teknoloji ve estetik tasarımı bir araya getirir. LED cam üst yüzey, NFC erişim opsiyonu, geniş çekmeceler ve gizli güvenlik alanı ile modern yatak odaları için güçlü bir modeldir.",
+      "NOVA AURA 02, füme cam üst yüzeyindeki kablosuz şarj alanı, ön yüzdeki dairesel Bluetooth hoparlörü ve dokunmatik kontrolleri sıcak çevresel LED ışıkla tamamlar. NFC kartla çalışan cam üst modül öne doğru kayarak arkasındaki özel saklama alanına kontrollü erişim sağlar.",
     features: [
-      "LED aydınlatmalı cam üst yüzey",
-      "NFC kartlı erişim opsiyonu",
-      "Geniş ve derin çekmeceler",
-      "Gizli güvenlik mekanizması",
-      "Kablosuz şarj opsiyonu",
-      "Hoparlör opsiyonu",
+      "NFC kartlı motorlu kayar erişim",
+      "Kablosuz telefon şarjı",
+      "Ön yüzde dairesel Bluetooth hoparlör",
+      "Cam yüzeyde dokunmatik kontrol",
+      "Sıcak çevresel LED aydınlatma",
+      "Geniş alt çekmece",
     ],
-    colors: ["Antrasit", "Kum Beji", "Kırık Beyaz"],
-    sizes: ["Standart", "Geniş", "Özel Ölçü"],
+    colors: ["Füme & Doğal Meşe", "Antrasit & Ceviz", "Siyah & Ceviz"],
+    sizes: ["48 × 42 × 62 cm"],
     images: [
-      "/images/generated/product-nova-03-pulse-5.webp",
-      "/images/generated/product-nova-03-pulse-6.webp",
-      "/images/generated/product-nova-03-pulse-7.webp",
-      "/images/generated/product-nova-03-pulse-8.webp",
-      "/images/generated/product-nova-03-pulse-1.webp",
-      "/images/generated/product-nova-03-pulse-2.webp",
-      "/images/generated/product-nova-03-pulse-3.webp",
-      "/images/generated/product-nova-03-pulse-4.webp",
+      "/images/products/studio/nova-aura-02-v2/fume-dogal-mese-kapak.webp",
+      "/images/products/studio/nova-aura-02-v2/fume-dogal-mese-mekanizma.webp",
+      "/images/products/nova-aura-02-v2/gercek-urun-on.webp",
+      "/images/products/nova-aura-02-v2/gercek-urun-salon.webp",
     ],
+    colorImages: {
+      "Füme & Doğal Meşe": [
+        "/images/products/studio/nova-aura-02-v2/fume-dogal-mese-kapak.webp",
+        "/images/products/studio/nova-aura-02-v2/fume-dogal-mese-mekanizma.webp",
+        "/images/products/nova-aura-02-v2/gercek-urun-on.webp",
+        "/images/products/nova-aura-02-v2/gercek-urun-salon.webp",
+      ],
+      "Antrasit & Ceviz": [
+        "/images/products/studio/nova-aura-02-v2/antrasit-ceviz-kapak.webp",
+        "/images/products/studio/nova-aura-02-v2/antrasit-ceviz-mekanizma.webp",
+      ],
+      "Siyah & Ceviz": [
+        "/images/products/studio/nova-aura-02-v2/siyah-ceviz-kapak.webp",
+        "/images/products/studio/nova-aura-02-v2/siyah-ceviz-mekanizma.webp",
+      ],
+    },
+    videos: [
+      {
+        src: "/videos/products/nova-aura-02-production.mp4",
+        poster:
+          "/images/products/studio/nova-aura-02-v2/fume-dogal-mese-kapak.webp",
+        label: "NOVA AURA 02 gerçek ürün ve üretim demosu",
+      },
+      {
+        src: "/videos/products/nova-aura-02-mechanism.mp4",
+        poster:
+          "/images/products/studio/nova-aura-02-v2/fume-dogal-mese-mekanizma.webp",
+        label: "NOVA AURA 02 mekanizma ve akıllı yüzey demosu",
+      },
+    ],
+    dimensions: {
+      width: 48,
+      depth: 42,
+      height: 62,
+      hiddenCompartment: "Yaklaşık 42 × 35 × 10 cm",
+    },
+    leadTime: "Ön siparişlerde 10–20 iş günü",
     isFeatured: true,
-    isNew: false,
-    isCustomQuote: true,
-    stockStatus: "Özel Üretim",
+    isNew: true,
+    isCustomQuote: false,
+    stockStatus: "Ön Sipariş",
     technicalSpecs: [
-      { label: "Üst Yüzey", value: "LED çizgili temperli cam görünüm" },
-      { label: "Erişim", value: "NFC kartlı ve projeye özel akıllı erişim opsiyonu" },
-      { label: "Depolama", value: "Geniş çekmece ve gizli güvenlik alanı kombinasyonu" },
-      { label: "Opsiyonlar", value: "Kablosuz şarj, hoparlör ve özel ölçü seçenekleri" },
+      { label: "Dış ölçü", value: "48 G × 42 D × 62 Y cm" },
+      { label: "Gizli alan", value: "Yaklaşık 42 × 35 × 10 cm" },
+      { label: "Akıllı yüzey", value: "Kablosuz şarj ve dokunmatik kontrol" },
+      { label: "Ses", value: "Ön yüzde entegre dairesel Bluetooth hoparlör" },
+      { label: "Erişim", value: "NFC kartla öne kayan motorlu cam üst modül" },
+      { label: "Aydınlatma", value: "Sıcak çevresel LED ışık" },
     ],
     whatsappMessage:
-      "Merhaba, GİZLİ HOME web sitesinden NOVA 03 PULSE hakkında bilgi almak istiyorum.",
-    deliveryInfo: businessInfo.delivery,
-    paymentInfo: businessInfo.payment,
-    seoTitle:
-      "NOVA 03 PULSE Akıllı Gizli Bölmeli Komodin | Şifreli Mobilya",
+      "Merhaba, GİZLİ HOME NOVA AURA 02 için sipariş ve teslimat bilgisi almak istiyorum.",
+    seoTitle: "NOVA AURA 02 Akıllı NFC Gizli Bölmeli Komodin",
     seoDescription:
-      "NOVA 03 PULSE; LED cam yüzey, NFC kartlı erişim opsiyonu, geniş çekmeceler ve gizli güvenlik alanı sunan premium akıllı komodindir.",
+      "NOVA AURA 02; NFC motorlu erişim, kablosuz şarj, Bluetooth hoparlör, dokunmatik cam yüzey ve sıcak LED aydınlatmalı premium akıllı komodindir.",
+  },
+  {
+    ...common,
+    id: "nova-night-01",
+    sku: "GH-NN-01",
+    slug: "nova-night-01-gizli-bolmeli-komodin",
+    name: "NOVA NIGHT 01",
+    shopierUrl: "https://www.shopier.com/gizlihome/50538342",
+    collection: "NOVA",
+    category: "Gizli Bölmeli Komodin",
+    price: 6499,
+    oldPrice: 9990,
+    campaignLabel: "Lansmana Özel",
+    campaignNote: "İlk 100 adet için 6.499 ₺ özel fiyat",
+    shortDescription:
+      "Sade komodin görünümünün altında LED destekli, kart kontrollü özel alan.",
+    description:
+      "NOVA NIGHT 01, yatak odasında dikkat çekmeden çalışan sessiz bir güvenlik katmanı sunar. Üst kapak NFC kartla açılır; aydınlatmalı iç hacim saat, takı, belge ve kişisel eşyalar için düzenli bir alan oluşturur.",
+    features: [
+      "NFC kartlı üst kapak",
+      "LED iç aydınlatma",
+      "İki çekmeceli gövde",
+      "Sessiz ray sistemi",
+      "Düşük pil uyarısı",
+      "Kurulu teslimat",
+    ],
+    colors: ["Safir Meşe", "Kırık Beyaz", "Antrasit", "Siyah"],
+    sizes: ["45 × 40 × 55 cm"],
+    images: [
+      "/images/products/nova-night/nova-night-safir-mese-closed.webp",
+      "/images/products/nova-night/nova-night-safir-mese-open.webp",
+      "/images/products/nova-night/nova-night-safir-mese-nfc.webp",
+      "/images/products/nova-night/nova-night-safir-mese-drawers.webp",
+      "/images/products/nova-night/nova-night-nfc-cards.webp",
+    ],
+    colorImages: {
+      "Safir Meşe": [
+        "/images/products/nova-night/nova-night-safir-mese-closed.webp",
+        "/images/products/nova-night/nova-night-safir-mese-open.webp",
+        "/images/products/nova-night/nova-night-safir-mese-nfc.webp",
+        "/images/products/nova-night/nova-night-safir-mese-drawers.webp",
+        "/images/products/nova-night/nova-night-nfc-cards.webp",
+      ],
+      "Kırık Beyaz": [
+        "/images/products/studio/nova-night/kirik-beyaz-kapak.webp",
+        "/images/products/studio/nova-night/kirik-beyaz-mekanizma.webp",
+      ],
+      Antrasit: [
+        "/images/products/studio/nova-night/antrasit-kapak.webp",
+        "/images/products/studio/nova-night/antrasit-mekanizma.webp",
+      ],
+      Siyah: [
+        "/images/products/studio/nova-night/siyah-kapak.webp",
+        "/images/products/studio/nova-night/siyah-mekanizma.webp",
+      ],
+    },
+    videos: [
+      {
+        src: "/videos/products/nova-night-launch-01.mp4",
+        poster: "/images/products/nova-night/nova-night-safir-mese-closed.webp",
+        label: "NOVA NIGHT 01 lansman filmi",
+      },
+      {
+        src: "/videos/products/nova-night-launch-02.mp4",
+        poster: "/images/products/nova-night/nova-night-safir-mese-nfc.webp",
+        label: "NOVA NIGHT 01 NFC erişim filmi",
+      },
+    ],
+    dimensions: {
+      width: 45,
+      depth: 40,
+      height: 55,
+      hiddenCompartment: "Yaklaşık 39 × 33 × 8 cm",
+    },
+    leadTime: "Stok durumuna göre 5–12 iş günü",
+    isFeatured: true,
+    isNew: true,
+    isCustomQuote: false,
+    stockStatus: "Sınırlı Üretim",
+    technicalSpecs: [
+      { label: "Dış ölçü", value: "45 G × 40 D × 55 Y cm" },
+      { label: "Gizli alan", value: "Yaklaşık 39 × 33 × 8 cm" },
+      { label: "Erişim", value: "NFC kartlı elektronik kilit" },
+      { label: "Enerji", value: "Değiştirilebilir pil ve düşük pil uyarısı" },
+      { label: "Çekmece", value: "2 adet sessiz raylı çekmece" },
+    ],
+    whatsappMessage:
+      "Merhaba, GİZLİ HOME NOVA NIGHT 01 için sipariş ve teslimat bilgisi almak istiyorum.",
+    seoTitle: "NOVA NIGHT 01 NFC Kartlı Gizli Bölmeli Komodin",
+    seoDescription:
+      "NOVA NIGHT 01; NFC kartlı üst gizli bölme, LED iç aydınlatma ve iki çekmeceli sade premium komodin tasarımı sunar.",
+  },
+  {
+    ...common,
+    id: "nova-wall-01",
+    sku: "GH-NW-01",
+    slug: "nova-wall-01-gizli-bolmeli-raf",
+    name: "NOVA WALL 01",
+    shopierUrl: "https://www.shopier.com/gizlihome/50538370",
+    collection: "NOVA",
+    category: "Gizli Bölmeli Duvar Rafı",
+    price: 8490,
+    oldPrice: null,
+    shortDescription:
+      "Minimal duvar rafının içinde NFC erişimli, LED aydınlatmalı saklama hacmi.",
+    description:
+      "NOVA WALL 01, salon, çalışma odası ve yatak odasında dekoratif raf gibi görünür. Yetkilendirilmiş kartla sessizce açılan iç hacmi, duvar yüzeyinde yer kaybetmeden görünmeyen saklama sağlar.",
+    features: [
+      "NFC kartlı erişim",
+      "LED aydınlatmalı iç hacim",
+      "Gizli duvar sabitlemesi",
+      "Sessiz kapak mekanizması",
+      "Dört yüzey seçeneği",
+      "Montaj kiti",
+    ],
+    colors: ["Kırık Beyaz", "Siyah", "Antrasit", "Safir Meşe"],
+    sizes: ["80 × 25 × 16 cm"],
+    images: [
+      "/images/products/studio/nova-wall/kirik-beyaz-kapak.webp",
+      "/images/products/studio/nova-wall/kirik-beyaz-mekanizma.webp",
+    ],
+    colorImages: {
+      "Kırık Beyaz": [
+        "/images/products/studio/nova-wall/kirik-beyaz-kapak.webp",
+        "/images/products/studio/nova-wall/kirik-beyaz-mekanizma.webp",
+      ],
+      Siyah: [
+        "/images/products/studio/nova-wall/siyah-kapak.webp",
+        "/images/products/studio/nova-wall/siyah-mekanizma.webp",
+      ],
+      Antrasit: [
+        "/images/products/studio/nova-wall/antrasit-kapak.webp",
+        "/images/products/studio/nova-wall/antrasit-mekanizma.webp",
+      ],
+      "Safir Meşe": [
+        "/images/products/studio/nova-wall/safir-mese-kapak.webp",
+        "/images/products/studio/nova-wall/safir-mese-mekanizma.webp",
+      ],
+    },
+    videos: [
+      {
+        src: "/videos/products/nova-wall-demo.mp4",
+        poster:
+          "/images/products/studio/nova-wall/kirik-beyaz-mekanizma.webp",
+        label: "NOVA WALL 01 açılım ve montaj demosu",
+      },
+    ],
+    dimensions: {
+      width: 80,
+      depth: 25,
+      height: 16,
+      hiddenCompartment: "Yaklaşık 72 × 20 × 8 cm",
+    },
+    leadTime: "Stok durumuna göre 5–12 iş günü",
+    isFeatured: true,
+    isNew: false,
+    isCustomQuote: false,
+    stockStatus: "Sınırlı Üretim",
+    technicalSpecs: [
+      { label: "Dış ölçü", value: "80 G × 25 D × 16 Y cm" },
+      { label: "Gizli alan", value: "Yaklaşık 72 × 20 × 8 cm" },
+      { label: "Erişim", value: "NFC kartlı elektronik kilit" },
+      { label: "Montaj", value: "Duvar tipine uygun gizli sabitleme kiti" },
+      { label: "Taşıma", value: "Duvar yapısına göre montajda doğrulanır" },
+    ],
+    whatsappMessage:
+      "Merhaba, GİZLİ HOME NOVA WALL 01 için sipariş ve duvar montajı bilgisi almak istiyorum.",
+    seoTitle: "NOVA WALL 01 NFC Kartlı Gizli Bölmeli Duvar Rafı",
+    seoDescription:
+      "NOVA WALL 01; NFC kartlı erişim, LED aydınlatmalı gizli hacim ve minimal duvar rafı tasarımı sunar.",
   },
 ];
 
-export const comingSoonProducts: ComingSoonProduct[] = [
-  {
-    id: "hidden-coffee-table",
-    name: "Gizli Bölmeli Sehpa",
-    collection: "NOVA",
-    category: "Gizli Bölmeli Sehpalar",
-    description:
-      "Salon için gizli çekmece, şifreli mekanizma ve akıllı açılma seçenekleriyle geliştirilen yeni sehpa ailesi.",
-    image: "/images/generated/product-gizli-arc-01.webp",
-    keywords: ["gizli çekmece", "gizli mekanizma", "akıllı sehpa"],
-  },
-  {
-    id: "hidden-tv-unit",
-    name: "Gizli Bölmeli TV Ünitesi",
-    collection: "VAULT",
-    category: "TV Üniteleri",
-    description:
-      "Villa ve salon projeleri için kablo yönetimli, geniş saklama alanlı ve kartlı erişimli TV ünitesi çözümleri.",
-    image: "/images/generated/product-gizli-vault-tv.webp",
-    keywords: ["gizli dolap", "şifreli dolap", "villa mobilyası"],
-  },
-  {
-    id: "hidden-console",
-    name: "Gizli Bölmeli Konsol",
-    collection: "VAULT",
-    category: "Konsollar",
-    description:
-      "Antre, salon ve özel yaşam alanları için dışarıdan konsol, içeride güvenli saklama alanı hissi veren seri.",
-    image: "/images/generated/collection-vault.webp",
-    keywords: ["gizli mobilya", "gizli saklama alanı", "kartlı kilitli mobilya"],
-  },
-  {
-    id: "private-office",
-    name: "Ofis ve Yönetici Mobilyaları",
-    collection: "PRIVATE",
-    category: "Ofis Mobilyaları",
-    description:
-      "Belge, cihaz ve değerli eşya güvenliği için şifreli mobilya ve özel ölçü yönetici odası çözümleri.",
-    image: "/images/generated/product-gizli-private-desk.webp",
-    keywords: ["şifreli mobilya", "güvenlik mobilyası", "ofis mobilyası"],
-  },
-  {
-    id: "villa-projects",
-    name: "Villa & Proje Ürünleri",
-    collection: "ATLAS",
-    category: "Villa & Proje Ürünleri",
-    description:
-      "Villa, rezidans, otel ve özel proje alanları için mimari plana entegre edilen gizli güvenlik mobilyaları.",
-    image: "/images/generated/banner-villa-project.webp",
-    keywords: ["villa mobilyası", "gizli dolap", "özel üretim mobilya"],
-  },
-  {
-    id: "custom-lab",
-    name: "Özel Üretim Gizli Mobilya",
-    collection: "CUSTOM LAB",
-    category: "Özel Üretim",
-    description:
-      "Ölçü, renk, NFC, şifre, akıllı kilit ve gizli mekanizma seçenekleriyle tamamen projeye özel üretim.",
-    image: "/images/generated/collection-custom-lab.webp",
-    keywords: ["özel üretim mobilya", "şifreli mobilya", "gizli mekanizma"],
-  },
-];
+export const comingSoonProducts: ComingSoonProduct[] = [];
 
 export function getFeaturedProducts() {
   return products.filter((product) => product.isFeatured);
@@ -410,4 +374,8 @@ export function getNewProducts() {
 
 export function getProductBySlug(slug: string) {
   return products.find((product) => product.slug === slug);
+}
+
+export function getProductById(id: string) {
+  return products.find((product) => product.id === id);
 }

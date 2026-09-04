@@ -23,6 +23,8 @@
 # misc
 .DS_Store
 *.pem
+__pycache__/
+*.pyc
 
 # debug
 npm-debug.log*
@@ -32,6 +34,16 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# local order storage
+/.data/
+
+# local working artifacts
+/.claude/
+/output/
+/Resimler SS/
+/tmp/
 
 # vercel
 .vercel

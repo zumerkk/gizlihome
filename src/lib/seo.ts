@@ -37,7 +37,7 @@ export function organizationSchema() {
         image: `${brand.siteUrl}/images/generated/og-premium.webp`,
         url: brand.siteUrl,
         telephone: brand.whatsappDisplay,
-        priceRange: "Teklif Al",
+        priceRange: "₺₺₺",
         address: {
           "@type": "PostalAddress",
           streetAddress: brand.address,
@@ -105,7 +105,10 @@ export function productSchema(product: Product) {
         "@type": "Offer",
         priceCurrency: "TRY",
         price: product.price,
-        availability: "https://schema.org/InStock",
+        availability:
+          product.stockStatus === "Ön Sipariş"
+            ? "https://schema.org/PreOrder"
+            : "https://schema.org/LimitedAvailability",
         url: `${brand.siteUrl}/urunler/${product.slug}`,
         seller: {
           "@id": `${brand.siteUrl}/#organization`,
@@ -133,7 +136,7 @@ export function productSchema(product: Product) {
       name: brand.name,
     },
     category: product.category,
-    sku: product.id,
+    sku: product.sku,
     material: "Premium MDF lam, mobilya mekanizması ve seçilen yüzey kaplaması",
     color: product.colors,
     keywords: [

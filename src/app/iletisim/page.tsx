@@ -27,8 +27,8 @@ export default function ContactPage() {
           <div>
             <SectionHeading
               eyebrow="İletişim"
-              title="Ürün, Fiyat ve Proje Detayları İçin Yazın."
-              description="Online sepet ve kredi kartı tahsilatı şu an aktif değildir. Sipariş ve teklif süreçleri WhatsApp üzerinden satış temsilcimizle yürütülür."
+              title="Ürün, Sipariş ve Proje Detayları İçin Yazın."
+              description="Standart NOVA modellerini siteden güvenli ödeme ile sipariş edebilir; özel ölçü, kurumsal proje ve havale/EFT talepleri için satış ekibimize ulaşabilirsiniz."
             />
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               <article className="rounded-md border border-obsidian/10 bg-white p-6">
@@ -67,10 +67,6 @@ export default function ContactPage() {
                   Mağazayı ziyaret etmek için WhatsApp&apos;tan randevu alın.
                 </p>
               </article>
-            </div>
-            <div className="mt-5 grid min-h-72 place-items-center rounded-md border border-dashed border-obsidian/20 bg-stone text-center text-sm font-semibold text-muted">
-              Google Maps alanı hazır. Embed bilgisi yayın öncesi harita
-              hesabından eklenebilir.
             </div>
           </div>
           <CustomProductionForm context="iletişim ve ürün bilgisi" />

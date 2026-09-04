@@ -6,7 +6,7 @@ import { businessInfo } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Gizlilik Politikası",
-  description: "GİZLİ HOME gizlilik politikası taslak metni.",
+  description: "GİZLİ HOME gizlilik, sipariş ve ödeme verilerinin işlenmesine ilişkin bilgilendirme.",
   alternates: {
     canonical: "/gizlilik-politikasi",
   },
@@ -19,23 +19,23 @@ export default function PrivacyPolicyPage() {
       <LegalShell
         eyebrow="Yasal"
         title="Gizlilik Politikası"
-        intro="Bu sayfa, GİZLİ HOME web sitesinden iletişime geçen kullanıcıların kişisel verilerinin nasıl işlenebileceğine dair profesyonel taslak bilgilendirme metnidir."
+        intro="Bu sayfa, GİZLİ HOME web sitesini kullanan ve sipariş oluşturan kişilerin verilerinin hangi amaçlarla işlendiğini açıklar."
         sections={[
           {
             title: "Toplanan bilgiler",
-            text: "Ad, telefon, mesaj içeriği, ürün tercihi, renk tercihi ve WhatsApp üzerinden gönüllü olarak paylaşılan proje bilgileri sipariş ve teklif süreçlerini yürütmek amacıyla kullanılabilir.",
+            text: "Ad, e-posta, telefon, teslimat adresi, sipariş içeriği, ürün tercihi ve kullanıcı tarafından paylaşılan proje bilgileri sipariş, teslimat ve destek süreçlerini yürütmek amacıyla işlenebilir.",
           },
           {
             title: "Kullanım amacı",
-            text: "Bilgiler ürün bilgilendirmesi, teklif hazırlığı, teslimat planlaması, satış sonrası destek ve müşteri iletişimi için işlenir.",
+            text: "Bilgiler ürün bilgilendirmesi, ödeme doğrulaması, sipariş kaydı, teslimat planlaması, dolandırıcılığın önlenmesi, satış sonrası destek ve yasal yükümlülüklerin yerine getirilmesi için işlenir.",
           },
           {
             title: "Ödeme bilgileri",
             text: businessInfo.legalPaymentNotice,
           },
           {
-            title: "Güncelleme",
-            text: "Bu taslak metin, marka tüzel bilgileri ve yasal danışmanlık doğrultusunda yayın öncesinde güncellenmelidir.",
+            title: "Saklama ve haklar",
+            text: "Kişisel veriler işlem amacı ve yasal saklama süreleri boyunca, erişimi sınırlandırılmış sistemlerde tutulur. İlgili kişiler yürürlükteki mevzuat kapsamındaki başvuru haklarını iletişim kanalımız üzerinden kullanabilir.",
           },
         ]}
       />

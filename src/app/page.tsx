@@ -1,210 +1,125 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, MessageCircle, ShieldCheck } from "lucide-react";
+import { ArrowUpRight, BadgeCheck, CreditCard, PackageCheck, ShieldCheck } from "lucide-react";
 import { ContactCTA } from "@/components/common/contact-cta";
-import { FeatureList } from "@/components/common/feature-list";
 import { JsonLd } from "@/components/common/json-ld";
 import { SectionHeading } from "@/components/common/section-heading";
 import { BrandStory } from "@/components/home/brand-story";
 import { CampaignBanners } from "@/components/home/campaign-banners";
-import { CategoryExplore } from "@/components/home/category-explore";
-import { CollectionCard } from "@/components/home/collection-card";
-import { EditorialCampaigns } from "@/components/home/editorial-campaigns";
 import { FAQAccordion } from "@/components/home/faq-accordion";
 import { HeroSection } from "@/components/home/hero-section";
 import { HowItWorks } from "@/components/home/how-it-works";
 import { InstagramGrid } from "@/components/home/instagram-grid";
-import { Newsletter } from "@/components/home/newsletter";
 import { ProjectCTA } from "@/components/home/project-cta";
-import { StyleFinder } from "@/components/home/style-finder";
-import { TrustFeatures } from "@/components/home/trust-features";
 import { ProductCard } from "@/components/products/product-card";
 import { Button } from "@/components/ui/button";
-import { WhatsAppButton } from "@/components/whatsapp/whatsapp-button";
-import { collections } from "@/data/collections";
-import { getFeaturedProducts, getNewProducts } from "@/data/products";
+import { products } from "@/data/products";
 import { faqSchema } from "@/lib/seo";
 
-const customFeatures = [
-  "Özel Ölçü",
-  "Özel Renk",
-  "NFC / Şifre / Akıllı Kilit Seçeneği",
-  "Projeye Özel Gizli Bölme Tasarımı",
-  "Mimar ve İç Mimar İş Birliği",
-];
-
-const trustSignals = [
-  "Özel üretim odaklı",
-  "Ürünler montajlı teslim edilir",
-  "Türkiye geneli gönderim",
-  "WhatsApp destek hattı",
-  "Proje ve mimar iş birlikleri",
-  "Güvenli paketleme",
+const serviceSignals = [
+  { icon: ShieldCheck, title: "NFC Kontrollü", text: "Yetkilendirilmiş kartla erişim" },
+  { icon: BadgeCheck, title: "2 Yıl Garanti", text: "Mekanizma ve üretim garantisi" },
+  { icon: PackageCheck, title: "Kurulu Teslim", text: "Montaj gerektirmeden kullanıma hazır" },
+  { icon: CreditCard, title: "Shopier Ödeme", text: "Geçici güvenli ödeme kanalımız" },
 ];
 
 export default function Home() {
-  const featuredProducts = getFeaturedProducts();
-  const newProducts = getNewProducts();
-
   return (
     <>
       <JsonLd data={faqSchema()} />
       <HeroSection />
       <CampaignBanners />
-      <TrustFeatures />
-      <CategoryExplore />
 
-      <section className="bg-stone py-20">
+      <section className="border-y border-obsidian/10 bg-cream py-5">
+        <div className="site-container grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          {serviceSignals.map((item) => (
+            <div key={item.title} data-reveal="up" className="flex items-center gap-3 px-1 py-2">
+              <item.icon className="h-5 w-5 shrink-0 text-bronze" />
+              <div>
+                <p className="text-sm font-extrabold text-obsidian">{item.title}</p>
+                <p className="text-xs font-semibold text-muted">{item.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="koleksiyon" className="bg-stone py-20 md:py-28">
         <div className="site-container">
           <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <SectionHeading
-              eyebrow="Koleksiyonlar"
-              title="Yaşam Alanınızın Gizli Tarafı."
-              description="Komodinden TV ünitesine, villa projelerinden yönetici odalarına kadar her alan için görünmeyen güvenlik."
+              eyebrow="NOVA / İmza Serisi"
+              title="Gizlilik, mobilyanın içinde kalır."
+              description="Gerçek ürün, gerçek fiyat, gerçek ölçü. Her modelin mekanizma videosunu ürün sayfasında izleyebilirsiniz."
             />
             <Button asChild variant="dark">
-              <Link href="/koleksiyonlar">
-                Tüm Koleksiyonlar
+              <Link href="/urunler">
+                Koleksiyonun Tamamı
                 <ArrowUpRight className="h-4 w-4 text-bronze" />
               </Link>
             </Button>
           </div>
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {collections.map((collection) => (
-              <CollectionCard key={collection.id} collection={collection} />
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {products.map((product, index) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                sharedTransition
+                eagerImage={index === 0}
+              />
             ))}
           </div>
         </div>
       </section>
 
-      <StyleFinder />
-
-      <section className="bg-cream py-20">
-        <div className="site-container">
-          <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              eyebrow="Öne Çıkan Ürünler"
-              title="En Çok Tercih Edilenler"
-              description="Aktif NOVA ürünlerini inceleyin; renk, ölçü ve gizli mekanizma tercihleri WhatsApp satış temsilcisiyle netleşir."
-            />
-            <Button asChild variant="light">
-              <Link href="/urunler">Tüm Ürünleri Gör</Link>
+      <section className="bg-obsidian py-20 text-cream md:py-28">
+        <div className="site-container grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+          <div data-reveal="left">
+            <p className="text-xs font-extrabold uppercase tracking-[0.32em] text-bronze">
+              Üretim Arşivi / 01
+            </p>
+            <h2 className="mt-4 font-serif text-5xl font-semibold leading-[0.95] md:text-7xl">
+              Gördüğünüz form. Bilmediğiniz katman.
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-8 text-stone/72">
+              NOVA CUBE&apos;un gerçek ürün videosu; sabit LED platformu, kartla açılan menteşeli üst kapağı ve gerçek iç hacmi gösterir. Stüdyo görselleri aynı ürün geometrisi esas alınarak hazırlandı.
+            </p>
+            <div className="mt-8 flex flex-wrap items-baseline gap-4">
+              <span className="font-serif text-5xl font-semibold">10.990 TL</span>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-bronze">
+                Lansman Fiyatı
+              </span>
+            </div>
+            <Button asChild className="mt-8" size="lg">
+              <Link href="/urunler/nova-cube-isikli-gizli-bolmeli-komodin">
+                NOVA CUBE&apos;u İncele
+              </Link>
             </Button>
           </div>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-stone py-20">
-        <div className="site-container">
-          <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              eyebrow="Yeni Gelenler"
-              title="Yeni Sistemler, Yeni Yüzeyler."
-              description="Sınırlı üretim ve yeni koleksiyon ürünleri; renk, ölçü ve teslimat seçenekleriyle WhatsApp üzerinden netleşir."
+          <div
+            data-reveal="right"
+            data-tilt="true"
+            className="relative mx-auto aspect-[9/16] w-full max-w-[460px] overflow-hidden rounded-md border border-bronze/25 bg-black shadow-[0_40px_120px_rgba(0,0,0,0.45)]"
+          >
+            <video
+              src="/videos/products/nova-cube-yeni-tanitim.mp4"
+              poster="/images/products/nova-cube-v2/gercek-urun-led-kapak.webp"
+              muted
+              loop
+              autoPlay
+              playsInline
+              preload="metadata"
+              controls
+              className="h-full w-full object-cover"
+              aria-label="NOVA CUBE gerçek ürün ve NFC erişim videosu"
             />
-            <Button asChild variant="dark">
-              <Link href="/urunler?sort=new">Yeni Ürünleri Gör</Link>
-            </Button>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {newProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
           </div>
         </div>
       </section>
 
       <HowItWorks />
-      <EditorialCampaigns />
       <BrandStory />
-
-      <section className="premium-dark-band bg-obsidian py-24 text-cream">
-        <div className="site-container grid gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.32em] text-bronze">
-              Gizli Katman
-            </p>
-            <h2 className="mt-4 max-w-3xl font-serif text-5xl font-semibold leading-none md:text-7xl">
-              Dışarıdan Sadece Bir Mobilya.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-stone/75">
-              İçeride ise yalnızca sizin bildiğiniz bir alan.
-            </p>
-            <div className="mt-8">
-              <Button asChild size="lg">
-                <Link href="/urunler">Ürünleri İncele</Link>
-              </Button>
-            </div>
-          </div>
-          <div className="premium-card group relative aspect-square overflow-hidden rounded-md border border-bronze/20 bg-charcoal">
-            <Image
-              src="/images/generated/feature-hidden-nightstand.webp"
-              alt="GİZLİ HOME gizli bölmeli komodin Instagram görseli"
-              fill
-              sizes="(max-width: 1024px) 100vw, 48vw"
-              className="object-cover transition duration-700 group-hover:scale-105"
-            />
-            <div className="card-shine" />
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-cream py-20">
-        <div className="site-container grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div>
-            <SectionHeading
-              eyebrow="Özel Üretim"
-              title="Hayalinizdeki Mobilyayı, Güvenliğinizle Birleştiriyoruz."
-              description="Ev, villa, ofis, otel, Airbnb, yönetici odası veya özel proje fark etmeksizin; ölçünüze, renginize, kullanım ihtiyacınıza ve güvenlik beklentinize göre üretim yapıyoruz."
-            />
-            <div className="mt-8">
-              <WhatsAppButton
-                customMessage="Merhaba, GİZLİ HOME için özel üretim mobilya talebim var. Projem hakkında bilgi paylaşmak istiyorum."
-                variant="dark"
-                size="lg"
-              >
-                <MessageCircle className="h-5 w-5 text-bronze" />
-                Özel Üretim İçin WhatsApp&apos;tan Yaz
-              </WhatsAppButton>
-            </div>
-          </div>
-          <div className="rounded-md border border-obsidian/10 bg-white p-6">
-            <FeatureList items={customFeatures} />
-          </div>
-        </div>
-      </section>
-
       <ProjectCTA />
-
-      <section className="bg-charcoal py-20 text-cream">
-        <div className="site-container">
-          <SectionHeading
-            eyebrow="Güven Unsurları"
-            title="Gerçek yorumlar geldiğinde bu alan hazır."
-            description="Şimdilik sahte müşteri yorumu kullanmıyoruz. Bunun yerine satın alma kararını destekleyen operasyonel güven unsurlarını net biçimde gösteriyoruz."
-            dark
-          />
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {trustSignals.map((item) => (
-              <div
-                key={item}
-                className="flex items-center gap-3 rounded-md border border-white/10 bg-white/5 p-5"
-              >
-                <ShieldCheck className="h-5 w-5 text-bronze" />
-                <span className="text-sm font-semibold text-stone">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <InstagramGrid />
-      <Newsletter />
       <FAQAccordion limit={6} />
       <ContactCTA />
     </>

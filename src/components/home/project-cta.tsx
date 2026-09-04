@@ -38,6 +38,7 @@ export function ProjectCTA() {
             {cards.map((card, index) => (
               <motion.article
                 key={card.title}
+                data-tilt="true"
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ y: -6 }}

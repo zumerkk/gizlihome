@@ -10,13 +10,20 @@ import { WhatsAppButton } from "@/components/whatsapp/whatsapp-button";
 import { cn, formatPrice } from "@/lib/utils";
 import type { Product } from "@/types/product";
 
-export function ProductInfo({ product }: { product: Product }) {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+export function ProductInfo({
+  product,
+  selectedColor,
+  onColorChange,
+}: {
+  product: Product;
+  selectedColor: string;
+  onColorChange: (color: string) => void;
+}) {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const price = formatPrice(product.price, product.isCustomQuote);
 
   return (
-    <aside className="lg:sticky lg:top-28">
+    <aside data-reveal="right" className="lg:sticky lg:top-28">
       <p className="text-xs font-bold uppercase tracking-[0.28em] text-bronze">
         {product.collection} Koleksiyonu
       </p>
@@ -42,6 +49,11 @@ export function ProductInfo({ product }: { product: Product }) {
         <span className="rounded-md border border-bronze/35 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-walnut">
           {product.stockStatus}
         </span>
+        {product.campaignNote ? (
+          <p className="basis-full rounded-md border border-[#ff7a3d]/40 bg-[#ff7a3d]/10 px-4 py-3 text-sm font-extrabold text-[#8a2f12]">
+            {product.campaignNote}
+          </p>
+        ) : null}
       </div>
 
       <div className="mt-7">
@@ -52,7 +64,7 @@ export function ProductInfo({ product }: { product: Product }) {
           <ColorSelector
             colors={product.colors}
             selectedColor={selectedColor}
-            onChange={setSelectedColor}
+            onChange={onColorChange}
           />
         </div>
       </div>
@@ -114,27 +126,28 @@ export function ProductInfo({ product }: { product: Product }) {
         {[
           {
             icon: Truck,
-            title: "Kargo",
-            text: "Teslimat planı konuma ve stok durumuna göre paylaşılır.",
+            title: "Termin",
+            text: product.leadTime,
           },
           {
             icon: PackageCheck,
-            title: "İade / Değişim",
-            text: "Ürün tipi ve özel üretim durumuna göre temsilci bilgilendirir.",
+            title: "Kurulu Teslim",
+            text: "Montaj gerektirmeden, kullanıma hazır gönderilir.",
           },
           {
             icon: ShieldCheck,
-            title: "Güvenli Süreç",
-            text: "Sipariş ve ödeme bilgileri yazılı WhatsApp görüşmesinde netleşir.",
+            title: "Garanti",
+            text: product.warranty,
           },
           {
             icon: CreditCard,
-            title: "Ödeme",
-            text: "Online kredi kartı tahsilatı bu aşamada aktif değildir.",
+            title: "Güvenli Ödeme",
+            text: "Kart bilgileri Shopier ekranında işlenir ve sitemizde tutulmaz.",
           },
         ].map((item) => (
           <div
             key={item.title}
+            data-reveal="up"
             className="premium-card rounded-md border border-obsidian/10 bg-white p-4"
           >
             <item.icon className="h-5 w-5 text-bronze" />
@@ -181,9 +194,25 @@ export function ProductInfo({ product }: { product: Product }) {
           aria-label={`${product.name} için WhatsApp'tan sipariş ver`}
         >
           <MessageCircle className="h-5 w-5" />
-          {product.isCustomQuote ? "WhatsApp'tan Teklif Al" : "WhatsApp'tan Sipariş Ver"}
+          WhatsApp&apos;tan Danış
         </WhatsAppButton>
       </div>
+      {product.shopierUrl ? (
+        <div className="mt-3">
+          <Link
+            href={product.shopierUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md border border-bronze/40 bg-obsidian px-5 py-3 text-sm font-semibold text-cream transition hover:bg-walnut"
+          >
+            <CreditCard className="h-5 w-5 text-bronze" />
+            Shopier&apos;den Satın Al
+          </Link>
+          <p className="mt-2 text-xs leading-5 text-muted">
+            Seçiminiz: {selectedColor}. Renk ve adedi Shopier ürün sayfasında yeniden seçerek siparişinizi tamamlayın.
+          </p>
+        </div>
+      ) : null}
       <div className="mt-3">
         <Link
           href="/ozel-uretim"

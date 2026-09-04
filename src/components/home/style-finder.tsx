@@ -10,7 +10,7 @@ const options = [
   {
     id: "bedroom",
     label: "Yatak Odası",
-    result: "NOVA NIGHT 01, NOVA CUBE, NOVA LITE, NOVA SLIDE ve NOVA 03 PULSE yatak odası için güçlü seçenekler.",
+    result: "NOVA NIGHT 01, CUBE, LITE, SLIDE ve AURA 01 yatak odası için güçlü seçenekler.",
     href: "/urunler?collection=NOVA",
   },
   {

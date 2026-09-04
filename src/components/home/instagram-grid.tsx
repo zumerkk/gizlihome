@@ -81,6 +81,7 @@ export function InstagramGrid() {
                 href={brand.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                data-tilt="true"
                 className="premium-card group relative block aspect-square overflow-hidden rounded-md bg-stone"
                 aria-label={`${brand.instagram} Instagram profilini aç`}
               >

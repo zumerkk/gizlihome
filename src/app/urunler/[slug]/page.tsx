@@ -3,8 +3,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/common/breadcrumb";
 import { ContactCTA } from "@/components/common/contact-cta";
 import { JsonLd } from "@/components/common/json-ld";
-import { ProductGallery } from "@/components/products/product-gallery";
-import { ProductInfo } from "@/components/products/product-info";
+import { ProductDetailExperience } from "@/components/products/product-detail-experience";
 import { ProductCard } from "@/components/products/product-card";
 import { RecentlyViewed } from "@/components/products/recently-viewed";
 import { seoKeywords } from "@/data/site";
@@ -73,10 +72,6 @@ export default async function ProductDetailPage({ params }: Props) {
   const fallbackRelated = related.length
     ? related
     : products.filter((item) => item.id !== product.id).slice(0, 3);
-  const bundled = products
-    .filter((item) => item.id !== product.id)
-    .slice(0, 2);
-
   return (
     <>
       <JsonLd data={productSchema(product)} />
@@ -95,33 +90,12 @@ export default async function ProductDetailPage({ params }: Props) {
       />
 
       <section className="bg-cream pb-20 pt-8">
-        <div className="site-container grid gap-10 lg:grid-cols-[1fr_0.9fr]">
-          <ProductGallery images={product.images} productName={product.name} />
-          <ProductInfo product={product} />
-        </div>
-      </section>
-
-      <section className="bg-stone py-20">
-        <div className="site-container">
-          <div className="mb-8">
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-walnut">
-              Benzer Seçimler
-            </p>
-            <h2 className="mt-3 font-serif text-4xl font-semibold text-obsidian md:text-5xl">
-              Aynı Güvenlik Dilinden.
-            </h2>
-          </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            {fallbackRelated.map((item) => (
-              <ProductCard key={item.id} product={item} />
-            ))}
-          </div>
-        </div>
+        <ProductDetailExperience product={product} />
       </section>
 
       <section className="bg-cream py-20">
         <div className="site-container grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
-          <div>
+          <div data-reveal="left">
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-walnut">
               Ürün Açıklaması
             </p>
@@ -129,14 +103,15 @@ export default async function ProductDetailPage({ params }: Props) {
               Teknik detay, günlük kullanımda sessiz kalır.
             </h2>
             <p className="mt-5 text-base leading-8 text-muted">
-              {product.description} Gizli bölme mimarisi; renk, ölçü, mekanizma
-              ve teslimat planına göre satış temsilcisiyle netleştirilir.
+              {product.description} Standart ölçüler üretim toleransına tabidir;
+              kesin ölçü ve yüzey seçimi sipariş onay formunda yazılı olarak paylaşılır.
             </p>
           </div>
           <div className="grid gap-3">
             {product.technicalSpecs.map((spec) => (
               <div
                 key={spec.label}
+                data-reveal="up"
                 className="premium-card grid gap-2 rounded-md border border-obsidian/10 bg-white p-5 sm:grid-cols-[150px_1fr]"
               >
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-bronze">
@@ -151,40 +126,20 @@ export default async function ProductDetailPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="bg-stone py-20">
+      <section className="bg-obsidian py-20 text-cream">
         <div className="site-container">
           <div className="mb-8">
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-walnut">
-              Birlikte Satın Alınanlar
+            <p className="text-xs font-bold uppercase tracking-[0.28em] text-bronze">
+              Benzer Seçimler
             </p>
-            <h2 className="mt-3 font-serif text-4xl font-semibold text-obsidian md:text-5xl">
-              Aynı alanda birlikte düşünün.
+            <h2 className="mt-3 font-serif text-4xl font-semibold md:text-5xl">
+              Aynı güvenlik dilinden.
             </h2>
           </div>
-          <div className="grid gap-5 md:grid-cols-2">
-            {bundled.map((item) => (
+          <div className="grid gap-5 md:grid-cols-3">
+            {fallbackRelated.map((item) => (
               <ProductCard key={item.id} product={item} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-obsidian py-20 text-cream">
-        <div className="site-container grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.28em] text-bronze">
-              Kullanıcı Yorumları
-            </p>
-            <h2 className="mt-3 font-serif text-4xl font-semibold leading-none md:text-5xl">
-              Gerçek deneyimler için hazır alan.
-            </h2>
-          </div>
-          <div className="rounded-md border border-bronze/20 bg-white/[0.06] p-6">
-            <p className="text-base leading-8 text-stone/78">
-              Bu bölüm sahte yorum üretmeden hazırlandı. Gerçek müşteri
-              yorumları, onaylı fotoğraflar ve puanlama entegrasyonu geldiğinde
-              burada yayınlanabilir.
-            </p>
           </div>
         </div>
       </section>

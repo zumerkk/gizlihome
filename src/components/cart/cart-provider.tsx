@@ -63,7 +63,7 @@ function createCartItem({ product, color, size, quantity = 1 }: AddItemInput): C
     slug: product.slug,
     name: product.name,
     category: product.category,
-    image: product.images[0],
+    image: product.colorImages?.[selectedColor]?.[0] ?? product.images[0],
     color: selectedColor,
     size: selectedSize,
     price: product.price,

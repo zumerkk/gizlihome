@@ -16,7 +16,7 @@ export function CollectionCard({ collection }: { collection: Collection }) {
       transition={{ type: "spring", stiffness: 240, damping: 24 }}
       className="premium-card group overflow-hidden rounded-md border border-obsidian/10 bg-white"
     >
-      <Link href={collection.href} className="block">
+      <Link href={collection.href} data-tilt="true" className="relative block">
         <div className="relative aspect-[4/3] overflow-hidden bg-stone">
           <Image
             src={collection.image}

@@ -3,23 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import {
-  Gift,
-  Minus,
-  Plus,
-  ShieldCheck,
-  Sparkles,
-  Trash2,
-  Truck,
-  X,
-} from "lucide-react";
-import { products } from "@/data/products";
-import { AddToCartButton } from "@/components/cart/add-to-cart-button";
+import { CreditCard, Minus, Plus, ShieldCheck, ShoppingBag, Trash2, X } from "lucide-react";
 import { useCart } from "@/components/cart/cart-provider";
 import { Button } from "@/components/ui/button";
+import { products } from "@/data/products";
+import { brand } from "@/data/site";
 import { formatPrice } from "@/lib/utils";
-
-const shippingGoal = 15000;
 
 export function CartDrawer() {
   const {
@@ -31,12 +20,9 @@ export function CartDrawer() {
     removeItem,
     checkoutUrl,
   } = useCart();
-
-  const progress = Math.min((subtotal / shippingGoal) * 100, 100);
-  const remaining = Math.max(shippingGoal - subtotal, 0);
-  const suggestions = products
-    .filter((product) => !items.some((item) => item.productId === product.id))
-    .slice(0, 2);
+  const shopierCheckoutUrl = items.length === 1
+    ? products.find((product) => product.id === items[0].productId)?.shopierUrl ?? brand.shopierUrl
+    : brand.shopierUrl;
 
   return (
     <AnimatePresence>
@@ -63,11 +49,11 @@ export function CartDrawer() {
           >
             <div className="flex items-center justify-between border-b border-obsidian/10 p-5">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-bronze">
-                  Sipariş Paneli
+                <p className="text-xs font-extrabold uppercase tracking-[0.24em] text-bronze">
+                  GİZLİ HOME
                 </p>
                 <h2 className="mt-1 font-serif text-4xl font-semibold text-obsidian">
-                  Sepetiniz
+                  Sepet
                 </h2>
               </div>
               <Button type="button" variant="dark" size="icon" onClick={closeCart} aria-label="Kapat">
@@ -76,27 +62,8 @@ export function CartDrawer() {
             </div>
 
             <div className="flex-1 overflow-y-auto p-5">
-              <div className="rounded-md border border-bronze/25 bg-white p-4">
-                <div className="flex items-center gap-3">
-                  <Truck className="h-5 w-5 text-bronze" />
-                  <div className="flex-1">
-                    <p className="text-sm font-bold text-obsidian">
-                      {remaining === 0
-                        ? "Kargo avantajı hedefi tamamlandı."
-                        : `${formatPrice(remaining)} daha ekleyin, kargo avantajı hedefini yakalayın.`}
-                    </p>
-                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-stone">
-                      <div
-                        className="h-full rounded-full bg-bronze transition-all duration-500"
-                        style={{ width: `${progress}%` }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
               {items.length ? (
-                <div className="mt-5 grid gap-4">
+                <div className="grid gap-4">
                   {items.map((item) => (
                     <div
                       key={item.id}
@@ -118,13 +85,23 @@ export function CartDrawer() {
                               {item.name}
                             </h3>
                             <p className="mt-1 text-xs font-semibold text-muted">
-                              {item.color} / {item.size}
+                              {item.color} · {item.size}
                             </p>
+                            {products.find((product) => product.id === item.productId)?.shopierUrl ? (
+                              <Link
+                                href={products.find((product) => product.id === item.productId)!.shopierUrl!}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-2 inline-block text-xs font-bold text-walnut underline underline-offset-4"
+                              >
+                                Ürünü Shopier&apos;de aç
+                              </Link>
+                            ) : null}
                           </div>
                           <button
                             type="button"
                             onClick={() => removeItem(item.id)}
-                            className="grid h-9 w-9 place-items-center rounded-md border border-obsidian/10 text-muted transition hover:border-bronze/45 hover:text-obsidian"
+                            className="grid h-9 w-9 place-items-center rounded-md border border-obsidian/10 text-muted transition hover:border-bronze hover:text-obsidian"
                             aria-label={`${item.name} ürününü sepetten çıkar`}
                           >
                             <Trash2 className="h-4 w-4" />
@@ -153,7 +130,7 @@ export function CartDrawer() {
                             </button>
                           </div>
                           <p className="font-serif text-2xl font-semibold text-obsidian">
-                            {item.priceLabel}
+                            {formatPrice((item.price ?? 0) * item.quantity)}
                           </p>
                         </div>
                       </div>
@@ -161,98 +138,61 @@ export function CartDrawer() {
                   ))}
                 </div>
               ) : (
-                <div className="mt-5 rounded-md border border-dashed border-obsidian/18 bg-white p-6 text-center">
-                  <Sparkles className="mx-auto h-7 w-7 text-bronze" />
+                <div className="rounded-md border border-dashed border-obsidian/18 bg-white p-8 text-center">
+                  <ShoppingBag className="mx-auto h-7 w-7 text-bronze" />
                   <p className="mt-3 font-serif text-3xl font-semibold text-obsidian">
-                    Sepetiniz henüz boş.
+                    Sepetiniz boş.
                   </p>
                   <p className="mt-2 text-sm leading-6 text-muted">
-                    Ürünleri inceleyip renk ve ölçü seçimiyle sipariş paneline ekleyin.
+                    Model ve yüzey seçerek güvenli ödeme adımına geçebilirsiniz.
                   </p>
                 </div>
               )}
 
-              <div className="mt-5 rounded-md border border-obsidian/10 bg-white p-4">
-                <label className="grid gap-2">
-                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-muted">
-                    Kupon / Proje Kodu
-                  </span>
-                  <input
-                    type="text"
-                    placeholder="Varsa kodunuzu yazın"
-                    className="h-11 rounded-md border border-obsidian/10 bg-cream px-3 text-sm font-semibold text-obsidian"
-                  />
-                </label>
-              </div>
-
-              {suggestions.length ? (
-                <div className="mt-6">
-                  <div className="mb-3 flex items-center gap-2">
-                    <Gift className="h-4 w-4 text-bronze" />
-                    <p className="text-sm font-bold text-obsidian">
-                      Akıllı Öneriler
+              <div className="mt-5 grid gap-3 rounded-md border border-bronze/25 bg-white p-4">
+                <div className="flex items-start gap-3">
+                  <CreditCard className="mt-0.5 h-5 w-5 text-bronze" />
+                  <div>
+                    <p className="text-sm font-extrabold text-obsidian">Shopier güvenli ödeme</p>
+                    <p className="mt-1 text-xs font-semibold leading-5 text-muted">
+                      Kart bilgileriniz Shopier&apos;in güvenli ödeme alanında işlenir; GİZLİ HOME sunucularında saklanmaz.
                     </p>
                   </div>
-                  <div className="grid gap-3">
-                    {suggestions.map((product) => (
-                      <div
-                        key={product.id}
-                        className="grid grid-cols-[74px_1fr] gap-3 rounded-md border border-obsidian/10 bg-white p-3"
-                      >
-                        <div className="relative aspect-square overflow-hidden rounded-md bg-stone">
-                          <Image
-                            src={product.images[0]}
-                            alt={`${product.name} öneri görseli`}
-                            fill
-                            sizes="74px"
-                            className="object-cover"
-                          />
-                        </div>
-                        <div className="min-w-0">
-                          <p className="truncate font-serif text-2xl font-semibold text-obsidian">
-                            {product.name}
-                          </p>
-                          <p className="text-xs font-semibold text-muted">
-                            {formatPrice(product.price, product.isCustomQuote)}
-                          </p>
-                          <AddToCartButton
-                            product={product}
-                            variant="light"
-                            size="sm"
-                            className="mt-3 w-full"
-                          >
-                            Sepete Ekle
-                          </AddToCartButton>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
-              ) : null}
+                <div className="flex items-start gap-3 border-t border-obsidian/10 pt-3">
+                  <ShieldCheck className="mt-0.5 h-5 w-5 text-bronze" />
+                  <p className="text-xs font-semibold leading-5 text-muted">
+                    Sipariş ve kargo durumunuzu Shopier sipariş ekranından takip edebilirsiniz.
+                  </p>
+                </div>
+              </div>
             </div>
 
             <div className="border-t border-obsidian/10 bg-white p-5">
               <div className="mb-4 flex items-center justify-between">
-                <span className="text-sm font-bold uppercase tracking-[0.18em] text-muted">
-                  Ara Toplam
+                <span className="text-xs font-extrabold uppercase tracking-[0.18em] text-muted">
+                  Toplam
                 </span>
                 <span className="font-serif text-4xl font-semibold text-obsidian">
                   {formatPrice(subtotal)}
                 </span>
               </div>
-              <div className="mb-4 flex items-start gap-3 rounded-md bg-cream p-3">
-                <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-bronze" />
-                <p className="text-xs font-semibold leading-5 text-muted">
-                  Online kredi kartı tahsilatı aktif değildir. Sipariş, ödeme ve teslimat
-                  bilgileri WhatsApp görüşmesinde netleştirilir.
-                </p>
-              </div>
               {items.length ? (
-                <Button asChild size="lg" className="w-full">
-                  <Link href={checkoutUrl} target="_blank" rel="noopener noreferrer">
-                    WhatsApp ile Siparişi Tamamla
-                  </Link>
-                </Button>
+                <div className="grid gap-2">
+                  <p className="mb-1 text-xs leading-5 text-muted">
+                    Sepetiniz otomatik aktarılmaz. Ürün, renk ve adet seçiminizi Shopier&apos;de yeniden yapın.
+                  </p>
+                  <Button asChild size="lg" className="w-full">
+                    <Link href={shopierCheckoutUrl} target="_blank" rel="noopener noreferrer" onClick={closeCart}>
+                      Shopier&apos;de Ödemeye Geç
+                    </Link>
+                  </Button>
+                  <Button asChild variant="light" className="w-full">
+                    <Link href={checkoutUrl} target="_blank" rel="noopener noreferrer">
+                      WhatsApp&apos;tan Danış
+                    </Link>
+                  </Button>
+                </div>
               ) : (
                 <Button asChild size="lg" variant="dark" className="w-full">
                   <Link href="/urunler" onClick={closeCart}>

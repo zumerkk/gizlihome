@@ -27,6 +27,8 @@ export function EditorialCampaigns() {
         {blocks.map((block) => (
           <article
             key={block.title}
+            data-reveal="up"
+            data-tilt="true"
             className="premium-card group relative min-h-[480px] overflow-hidden rounded-md border border-bronze/20 bg-charcoal"
           >
             <Image

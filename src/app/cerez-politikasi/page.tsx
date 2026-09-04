@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/common/section-heading";
 
 export const metadata: Metadata = {
   title: "Çerez Politikası",
-  description: "GİZLİ HOME çerez politikası taslak metni.",
+  description: "GİZLİ HOME zorunlu depolama, oturum ve çerez kullanımı bilgilendirmesi.",
   alternates: {
     canonical: "/cerez-politikasi",
   },
@@ -14,19 +14,19 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: "Çerez kullanımı",
-    text: "Web sitesi performans, güvenlik, temel kullanım ve ileride eklenebilecek analiz araçları için çerezlerden yararlanabilir.",
+    text: "Web sitesi temel kullanım ve güvenlik için sınırlı teknik depolama kullanır. Sepet tercihleri cihazınızın yerel depolama alanında saklanır; kart bilgileri GİZLİ HOME tarafından depolanmaz.",
   },
   {
     title: "Zorunlu çerezler",
-    text: "Site navigasyonu, güvenlik ve temel kullanıcı deneyimi için gerekli teknik çerezler kullanılabilir.",
+    text: "Yetkili yönetim oturumunda, kısa süreli ve yalnız sunucu tarafından okunabilen güvenli bir oturum çerezi kullanılır. Bu çerez pazarlama amacı taşımaz.",
   },
   {
     title: "Analitik ve pazarlama",
-    text: "Analitik veya reklam çerezleri aktif edilirse kullanıcı bilgilendirmesi ve gerekli onay mekanizmaları yayına alınmalıdır.",
+    text: "Sitede şu anda analitik veya reklam çerezi aktif değildir. Böyle bir araç eklendiğinde zorunlu olmayan çerezler kullanıcı tercihi alınmadan çalıştırılmaz.",
   },
   {
     title: "Güncelleme",
-    text: "Bu metin, kullanılacak gerçek çerez ve üçüncü taraf araç listesine göre yayın öncesinde güncellenmelidir.",
+    text: "Çerez ve depolama uygulamalarında değişiklik olması hâlinde bu sayfa güncellenir ve yürürlük tarihi açıkça belirtilir. Son güncelleme: 25 Ağustos 2026.",
   },
 ];
 
@@ -39,7 +39,7 @@ export default function CookiePolicyPage() {
           <SectionHeading
             eyebrow="Yasal"
             title="Çerez Politikası"
-            description="Bu sayfa, GİZLİ HOME web sitesi için hazırlanmış profesyonel çerez politikası taslağıdır."
+            description="Sitede kullanılan zorunlu teknik depolama ve oturum uygulamalarını şeffaf biçimde açıklıyoruz."
           />
           <div className="mt-10 grid gap-5">
             {sections.map((section) => (

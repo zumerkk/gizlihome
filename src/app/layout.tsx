@@ -5,6 +5,7 @@ import { CartProvider } from "@/components/cart/cart-provider";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { ScrollProgress } from "@/components/common/scroll-progress";
+import { MotionSystem } from "@/components/common/motion-system";
 import { FloatingWhatsAppButton } from "@/components/whatsapp/floating-whatsapp-button";
 import { JsonLd } from "@/components/common/json-ld";
 import { brand, seoKeywords } from "@/data/site";
@@ -105,13 +106,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className={`${display.variable} ${body.variable}`}>
+    <html
+      lang="tr"
+      data-scroll-behavior="smooth"
+      className={`${display.variable} ${body.variable}`}
+    >
       <body className="flex min-h-screen flex-col antialiased">
         <CartProvider>
           <JsonLd data={organizationSchema()} />
           <ScrollProgress />
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            <MotionSystem>{children}</MotionSystem>
+          </main>
           <Footer />
           <FloatingWhatsAppButton />
           <CartDrawer />

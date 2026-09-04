@@ -42,6 +42,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
+        data-magnetic="true"
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}

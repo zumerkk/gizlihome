@@ -9,6 +9,9 @@ const colorMap: Record<string, string> = {
   "Kırık Beyaz": "#E9E4DA",
   Beyaz: "#FFFFFF",
   "Safir Meşe": "#8A6A4D",
+  "Füme & Doğal Meşe": "linear-gradient(135deg, #2b2b2b 0 50%, #a9835d 50%)",
+  "Antrasit & Ceviz": "linear-gradient(135deg, #303030 0 50%, #5a3825 50%)",
+  "Siyah & Ceviz": "linear-gradient(135deg, #111111 0 50%, #5a3825 50%)",
   Ceviz: "#4B3021",
   Krem: "#F7F5F0",
   "Koyu Ceviz": "#4B3021",
@@ -49,7 +52,7 @@ export function ColorSelector({
         >
           <span
             className="h-4 w-4 rounded-full border border-obsidian/15"
-            style={{ backgroundColor: colorMap[color] ?? "#B58A52" }}
+            style={{ background: colorMap[color] ?? "#B58A52" }}
             aria-hidden="true"
           />
           <span>{color}</span>

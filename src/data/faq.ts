@@ -34,17 +34,17 @@ export const faqs = [
   {
     question: "Türkiye'nin her yerine gönderim yapıyor musunuz?",
     answer:
-      "Evet, Türkiye geneli gönderim ve proje teslim planı için satış temsilcimiz WhatsApp üzerinden bilgi verir.",
+      "Evet. Türkiye geneli güvenli ambalajlı gönderim yapılır. Büyük ölçülü ürünlerde kurulum ve teslimat planı sipariş sonrasında teyit edilir.",
   },
   {
     question: "Kapıda ödeme seçeneği var mı?",
     answer:
-      "Kapıda ödeme uygunluğu ürün, şehir ve teslimat planına göre değişebilir. Güncel seçenekler WhatsApp üzerinden paylaşılır.",
+      "Kapıda ödeme standart bir seçenek değildir. Kartlı ödemeler geçici olarak Shopier güvenli ödeme alanında; havale/EFT talepleri satış ekibimiz üzerinden yürütülür.",
   },
   {
     question: "Havale / EFT ile ödeme yapılabiliyor mu?",
     answer:
-      "Evet. Havale/EFT seçenekleri ve sipariş onay süreci satış temsilcimiz tarafından paylaşılır.",
+      "Evet. Havale/EFT bilgileri ve sipariş onay süreci satış ekibimiz tarafından paylaşılır; açıklama alanına sipariş kodu yazılmalıdır.",
   },
   {
     question: "Özel ölçü üretim yapıyor musunuz?",

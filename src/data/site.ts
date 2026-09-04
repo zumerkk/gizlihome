@@ -15,6 +15,8 @@ export const brand = {
   subSlogan: "Şıklık dışarıda. Güvenlik içeride.",
   instagram: "@gizlihome",
   instagramUrl: "https://www.instagram.com/gizlihome",
+  shopierUrl:
+    process.env.NEXT_PUBLIC_SHOPIER_STORE_URL || "https://www.shopier.com/gizlihome",
   whatsappDisplay: "+90 541 381 21 14",
   whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "905413812114",
   whatsappBaseUrl: "https://wa.me/905413812114",
@@ -50,26 +52,24 @@ export const seoKeywords = [
 
 export const businessInfo = {
   delivery:
-    "Ürünlerimiz özenle paketlenir ve kullanıma hazır şekilde gönderilir. Teslimat süresi bulunduğunuz konuma ve stok durumuna göre satış temsilcimiz tarafından paylaşılır.",
+    "Ürünler güvenli ambalajla, kurulu ve kullanıma hazır gönderilir. Stoklu modeller 3–12; ön sipariş modelleri 10–20 iş gününde kargoya hazırlanır.",
   payment:
-    "Kapıda ödeme, havale/EFT ve mağaza teslim seçenekleri için WhatsApp üzerinden bilgi alabilirsiniz.",
+    "Kartlı ödemeler geçici olarak Shopier güvenli ödeme sayfasında tamamlanır. Kart verileri GİZLİ HOME sunucularında tutulmaz. Havale/EFT için satış ekibimizden bilgi alabilirsiniz.",
   warranty:
-    "Garanti ve servis kapsamı ürün tipine ve seçilen mekanizmaya göre satış temsilcimiz tarafından netleştirilir.",
+    "Standart ürünler, mekanizma ve üretim kaynaklı sorunlara karşı 2 yıl garantilidir.",
   leadTime:
     "Stoklu ürünlerde teslimat planı WhatsApp görüşmesinde paylaşılır. Özel üretimlerde süre ölçü, renk ve mekanizma seçimine göre değişir.",
   legalPaymentNotice:
-    "Online kredi kartı tahsilatı bu aşamada aktif değildir. Ödeme ve sipariş süreçleri WhatsApp üzerinden paylaşılacak bilgiler doğrultusunda yürütülür.",
+    "Kartlı ödemeler, yeni sanal POS entegrasyonu tamamlanana kadar Shopier güvenli ödeme altyapısıyla işlenir.",
 };
 
 export const navigation = [
-  { label: "Ana Sayfa", href: "/" },
-  { label: "Koleksiyonlar", href: "/koleksiyonlar" },
   { label: "Ürünler", href: "/urunler" },
   { label: "Nasıl Çalışır?", href: "/nasil-calisir" },
   { label: "Özel Üretim", href: "/ozel-uretim" },
   { label: "Proje Çözümleri", href: "/proje-cozumleri" },
   { label: "Hakkımızda", href: "/hakkimizda" },
-  { label: "İletişim", href: "/iletisim" },
+  { label: "Sipariş Takip", href: "/siparis/takip" },
 ];
 
 export const legalLinks = [

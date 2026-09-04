@@ -43,6 +43,8 @@ export function CategoryExplore() {
               <Link
                 key={category}
                 href={meta.href}
+                data-reveal="up"
+                data-tilt="true"
                 className="premium-card group flex min-h-36 flex-col justify-between overflow-hidden rounded-md border border-obsidian/10 bg-white p-5"
               >
                 <div className="flex items-center justify-between">

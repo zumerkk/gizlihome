@@ -29,7 +29,11 @@ export function BrandStory() {
   return (
     <section className="bg-cream py-20">
       <div className="site-container grid gap-10 lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
-        <div className="premium-card group relative aspect-[4/4.8] overflow-hidden rounded-md border border-obsidian/10 bg-stone lg:aspect-[5/5]">
+        <div
+          data-reveal="left"
+          data-tilt="true"
+          className="premium-card group relative aspect-[4/4.8] overflow-hidden rounded-md border border-obsidian/10 bg-stone lg:aspect-[5/5]"
+        >
           <Image
             src="/images/generated/feature-hidden-nightstand.webp"
             alt="GİZLİ HOME gizli bölmeli premium komodin"
@@ -59,6 +63,7 @@ export function BrandStory() {
             {advantages.map((advantage) => (
               <div
                 key={advantage.title}
+                data-reveal="up"
                 className="premium-card rounded-md border border-obsidian/10 bg-white p-5"
               >
                 <advantage.icon className="h-6 w-6 text-bronze" />

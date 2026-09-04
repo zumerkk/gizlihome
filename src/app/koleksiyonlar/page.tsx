@@ -9,7 +9,7 @@ import { seoKeywords } from "@/data/site";
 export const metadata: Metadata = {
   title: "Koleksiyonlar | Gizli Mobilya ve Güvenlik Mobilyası",
   description:
-    "NOVA üretim ürünleri ve yakında gelecek gizli dolap, gizli mobilya, şifreli mobilya, villa ve özel üretim güvenlik mobilyası koleksiyonlarını keşfedin.",
+    "NOVA gizli dolap, NFC kartlı mobilya, villa ve özel üretim güvenlik mobilyası koleksiyonlarını keşfedin.",
   keywords: seoKeywords,
   alternates: {
     canonical: "/koleksiyonlar",

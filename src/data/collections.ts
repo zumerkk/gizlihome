@@ -7,9 +7,9 @@ export const collections: Collection[] = [
     name: "NOX",
     eyebrow: "Gece Koleksiyonu",
     description:
-      "Yatak odası ve kişisel güvenlik alanları için geliştirilen gece koleksiyonu çok yakında.",
+      "NOVA NIGHT 01, CUBE ve LITE ile yatak odasında görünmeyen, kontrollü saklama çözümleri.",
     image: "/images/generated/collection-nox.webp",
-    href: "/urunler#cok-yakinda",
+    href: "/urunler?category=Komodin",
   },
   {
     id: "vault",
@@ -17,9 +17,9 @@ export const collections: Collection[] = [
     name: "VAULT",
     eyebrow: "Güvenlik Koleksiyonu",
     description:
-      "Raf, TV ünitesi ve büyük gizli bölmelerde güvenlik hissi veren mimari mobilyalar yakında.",
+      "Duvar, raf ve mobilya yüzeyine entegre edilen kontrollü erişim çözümleri.",
     image: "/images/generated/collection-vault.webp",
-    href: "/urunler#cok-yakinda",
+    href: "/urunler?category=Duvar%20Raf%C4%B1",
   },
   {
     id: "nova",
@@ -27,7 +27,7 @@ export const collections: Collection[] = [
     name: "NOVA",
     eyebrow: "Modern Yaşam Koleksiyonu",
     description:
-      "NOVA NIGHT 01, NOVA WALL 01, NOVA 03 PULSE, NOVA CUBE, NOVA LITE ve NOVA SLIDE ile modern gizli mobilya çizgisi.",
+      "NOVA CUBE, AURA 01, AURA 02, NIGHT 01, WALL 01, LITE ve SLIDE ile modern gizli mobilya çizgisi.",
     image: "/images/generated/collection-nova.webp",
     href: "/urunler?collection=NOVA",
   },
@@ -47,9 +47,9 @@ export const collections: Collection[] = [
     name: "PRIVATE",
     eyebrow: "Ofis ve Yönetici Çözümleri",
     description:
-      "Yönetici odası, özel çalışma alanı ve belge güvenliği için görünmeyen premium çözümler çok yakında.",
+      "Yönetici odası, özel çalışma alanı ve belge güvenliği için projeye özel premium çözümler.",
     image: "/images/generated/collection-private.webp",
-    href: "/urunler#cok-yakinda",
+    href: "/proje-cozumleri",
   },
   {
     id: "custom-lab",
